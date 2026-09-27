@@ -2,15 +2,17 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import {
   
-  ArrowRight, Download, Users, CreditCard, PlayCircle, BarChart3,
-  ShieldCheck, Smartphone, CheckCircle2, MessageCircle, Menu, X
+ ArrowRight, Download, Users, CreditCard, PlayCircle, BarChart3,
+ShieldCheck, Smartphone, CheckCircle2, MessageCircle, Music2, Menu, X
 } from "lucide-react";
+
 import "./styles.css";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import ContactUs from "./pages/ContactUs";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import AboutUs from "./pages/AboutUs";
 import TermsConditions from "./pages/TermsConditions";
+
 const features = [
   { icon: Users, title: "Member Management", text: "Add, view and manage all your members easily." },
   { icon: CreditCard, title: "Payment Management", text: "Track paid and unpaid memberships with ease." },
@@ -265,8 +267,9 @@ function App() {
     target="_blank"
     rel="noreferrer"
     aria-label="Mamber Hub WhatsApp Channel"
+    title="WhatsApp Channel"
   >
-    WhatsApp
+    <MessageCircle size={26} />
   </a>
 
   <a
@@ -274,11 +277,11 @@ function App() {
     target="_blank"
     rel="noreferrer"
     aria-label="Mamber Hub TikTok"
+    title="TikTok"
   >
-    TikTok
+    <Music2 size={26} />
   </a>
 </div>
-
   <div className="copyright">
     © 2026 Mamber Hub. All rights reserved.
   </div>

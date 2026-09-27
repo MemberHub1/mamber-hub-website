@@ -65,8 +65,13 @@ function App() {
               manage members, payments, videos and membership activities — all in one place.
             </p>
             <div className="actions">
-              <a className="btn primary" href="#download"><Download size={19}/> Download App</a>
-              <a className="btn outline" href="#features">Get Started <ArrowRight size={18}/></a>
+<a
+  className="btn primary"
+  href="https://github.com/MemberHub1/mamber-hub-website/releases/latest/download/app-debug.apk"
+  download
+>
+  <Download size={19}/> Download App
+</a>              <a className="btn outline" href="#features">Get Started <ArrowRight size={18}/></a>
             </div>
             <div className="trust-row">
               <span><ShieldCheck size={21}/> Secure & Reliable</span>

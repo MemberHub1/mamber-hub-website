@@ -220,3 +220,101 @@
     font-size: 15px;
   }
 }
+/* =========================
+   INSTALL APP SECTION
+========================= */
+
+.install-section {
+  padding: 90px 6%;
+  background: #f7faf9;
+  text-align: center;
+}
+
+.install-section h2 {
+  margin: 10px 0 12px;
+}
+
+.install-section .section-sub {
+  max-width: 650px;
+  margin: 0 auto 45px;
+}
+
+.install-steps {
+  max-width: 1150px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.install-step {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #e5ebe8;
+  border-radius: 18px;
+  padding: 32px 22px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.install-step:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.09);
+}
+
+.install-num {
+  font-size: 14px;
+  font-weight: 800;
+  margin-bottom: 15px;
+  opacity: 0.55;
+}
+
+.install-icon {
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e8f7f0;
+  font-size: 28px;
+}
+
+.install-step h3 {
+  margin: 0 0 10px;
+  font-size: 20px;
+}
+
+.install-step p {
+  margin: 0;
+  line-height: 1.7;
+  font-size: 14px;
+  color: #66736d;
+}
+
+.install-action {
+  margin-top: 40px;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .install-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .install-section {
+    padding: 70px 20px;
+  }
+
+  .install-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .install-step {
+    padding: 28px 20px;
+  }
+}

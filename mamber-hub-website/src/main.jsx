@@ -119,7 +119,65 @@ function App() {
             ))}
           </div>
         </section>
+<section id="install" className="section install-section">
+  <p className="eyebrow center">GET STARTED</p>
+  <h2>How to Install <span>Mamber Hub</span></h2>
+  <p className="section-sub">
+    Download and install the Mamber Hub Android app in a few simple steps.
+  </p>
 
+  <div className="install-steps">
+
+    <div className="install-step">
+      <div className="install-num">01</div>
+      <div className="install-icon">📥</div>
+      <h3>Download APK</h3>
+      <p>
+        Click the Download App button and download the Mamber Hub APK
+        to your Android phone.
+      </p>
+    </div>
+
+    <div className="install-step">
+      <div className="install-num">02</div>
+      <div className="install-icon">📱</div>
+      <h3>Open the APK</h3>
+      <p>
+        Open the downloaded APK from your phone's Downloads folder.
+      </p>
+    </div>
+
+    <div className="install-step">
+      <div className="install-num">03</div>
+      <div className="install-icon">⚙️</div>
+      <h3>Allow Installation</h3>
+      <p>
+        If Android asks for permission, allow installation from this source
+        and continue.
+      </p>
+    </div>
+
+    <div className="install-step">
+      <div className="install-num">04</div>
+      <div className="install-icon">✅</div>
+      <h3>Install & Enjoy</h3>
+      <p>
+        Tap Install, open Mamber Hub, and start using your member benefits.
+      </p>
+    </div>
+
+  </div>
+
+  <div className="install-action">
+    <a
+      className="btn primary"
+      href="https://github.com/MemberHub1/mamber-hub-website/releases/latest/download/app-debug.apk"
+      download
+    >
+      <Download size={19} /> Download Mamber Hub APK
+    </a>
+  </div>
+</section>
         <section id="download" className="preview section">
           <div className="preview-copy">
             <p className="eyebrow">APP PREVIEW</p>

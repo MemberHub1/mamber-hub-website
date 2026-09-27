@@ -318,3 +318,273 @@
     padding: 28px 20px;
   }
 }
+/* INSTALL APP - PROFESSIONAL DESIGN */
+
+.install-section {
+  padding: 90px 6%;
+  text-align: center;
+  background: #f7faf9;
+}
+
+.install-section h2 {
+  margin: 10px 0 12px;
+}
+
+.install-section .section-sub {
+  max-width: 650px;
+  margin: 0 auto 45px;
+}
+
+.install-steps {
+  max-width: 1150px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.install-step {
+  background: #fff;
+  border: 1px solid #e4ebe7;
+  border-radius: 20px;
+  padding: 30px 20px;
+  position: relative;
+  transition: 0.3s ease;
+}
+
+.install-step:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.install-num {
+  font-size: 14px;
+  font-weight: 800;
+  opacity: 0.5;
+  margin-bottom: 12px;
+}
+
+.install-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e8f7f0;
+  font-size: 28px;
+}
+
+.install-step h3 {
+  margin-bottom: 10px;
+}
+
+.install-step p {
+  color: #68756f;
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+.install-action {
+  margin-top: 40px;
+}
+
+/* Mobile */
+
+@media (max-width: 900px) {
+  .install-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .install-section {
+    padding: 65px 20px;
+  }
+
+  .install-steps {
+    grid-template-columns: 1fr;
+  }
+}
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+  /* Header */
+  .header {
+    padding: 14px 20px;
+  }
+
+  .brand-logo {
+    width: 42px;
+    height: 42px;
+  }
+
+  .brand strong {
+    font-size: 18px;
+  }
+
+  .brand small {
+    font-size: 9px;
+  }
+
+  /* Mobile menu */
+  .menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .nav.open {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    padding: 20px;
+    background: #ffffff;
+    border-top: 1px solid #e5ebe8;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+    z-index: 1000;
+  }
+
+  .nav.open a {
+    padding: 12px 8px;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 60px 20px 50px;
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-copy h1 {
+    font-size: 38px;
+    line-height: 1.15;
+  }
+
+  .hero-text {
+    font-size: 15px;
+  }
+
+  .actions {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .trust-row {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .phones {
+    margin-top: 35px;
+  }
+
+  /* Sections */
+  .section {
+    padding: 65px 20px;
+  }
+
+  .section h2 {
+    font-size: 32px;
+  }
+
+  .section-sub {
+    font-size: 15px;
+  }
+
+  /* Features */
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* How it works */
+  .steps {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .step {
+    padding: 25px 20px;
+  }
+
+  /* Install */
+  .install-section {
+    padding: 65px 20px;
+  }
+
+  .install-steps {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .install-step {
+    padding: 28px 20px;
+  }
+
+  /* App preview */
+  .preview {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .screens {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Pricing */
+  .price-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 25px;
+  }
+
+  /* CTA */
+  .cta {
+    padding: 55px 20px;
+    text-align: center;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  /* Footer */
+  .footer {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    padding: 50px 20px 25px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .hero-copy h1 {
+    font-size: 32px;
+  }
+
+  .actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .screens {
+    grid-template-columns: 1fr;
+  }
+
+  .install-step h3 {
+    font-size: 19px;
+  }
+
+  .install-step p {
+    font-size: 14px;
+  }
+}

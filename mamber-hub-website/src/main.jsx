@@ -105,20 +105,6 @@ function App() {
           </div>
         </section>
 
-        <section id="how" className="section process">
-          <p className="eyebrow center">SIMPLE PROCESS</p>
-          <h2>How Mamber Hub <span>Works</span></h2>
-          <p className="section-sub">Get started in just a few simple steps.</p>
-          <div className="steps">
-            {steps.map(([num, title, text]) => (
-              <div className="step" key={num}>
-                <div className="step-num">{num}</div>
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </div>
-            ))}
-          </div>
-        </section>
 <section id="install" className="section install-section">
   <p className="eyebrow center">GET STARTED</p>
   <h2>How to Install <span>Mamber Hub</span></h2>
@@ -178,6 +164,21 @@ function App() {
     </a>
   </div>
 </section>
+ <section id="how" className="section process">
+          <p className="eyebrow center">SIMPLE PROCESS</p>
+          <h2>How Mamber Hub <span>Works</span></h2>
+          <p className="section-sub">Get started in just a few simple steps.</p>
+          <div className="steps">
+            {steps.map(([num, title, text]) => (
+              <div className="step" key={num}>
+                <div className="step-num">{num}</div>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+        
         <section id="download" className="preview section">
           <div className="preview-copy">
             <p className="eyebrow">APP PREVIEW</p>

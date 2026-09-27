@@ -178,7 +178,7 @@ function App() {
             ))}
           </div>
         </section>
-        
+
         <section id="download" className="preview section">
           <div className="preview-copy">
             <p className="eyebrow">APP PREVIEW</p>
@@ -257,11 +257,27 @@ function App() {
     <Link to="/contact">Contact Us</Link>
   </div>
 
-  <div>
-    <h4>Follow Us</h4>
-    <p className="socials">● &nbsp; ◎ &nbsp; ▶ &nbsp; ♪</p>
-    <p>WhatsApp: +92 318 7630194</p>
-  </div>
+  <h4>Follow Us</h4>
+
+<div className="socials">
+  <a
+    href="https://whatsapp.com/channel/0029Vb8gwbm4yltS5a7z6j2k"
+    target="_blank"
+    rel="noreferrer"
+    aria-label="Mamber Hub WhatsApp Channel"
+  >
+    WhatsApp
+  </a>
+
+  <a
+    href="https://www.tiktok.com/@mamberhubofficial?_r=1&_t=ZS-9A52IOzCHmp"
+    target="_blank"
+    rel="noreferrer"
+    aria-label="Mamber Hub TikTok"
+  >
+    TikTok
+  </a>
+</div>
 
   <div className="copyright">
     © 2026 Mamber Hub. All rights reserved.

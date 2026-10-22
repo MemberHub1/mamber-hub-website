@@ -1,10 +1,12 @@
 import React from "react";
+import PageTopBar from "./PageTopBar";
 
 function AboutUs() {
   return (
     <div className="contact-page">
+      <PageTopBar />
       <div className="contact-container">
-        <p className="eyebrow">ABOUT MEMBER HUB</p>
+        <p className="eyebrow">ABOUT MAMBER HUB</p>
 
         <h1>About <span>Us</span></h1>
 
@@ -45,8 +47,8 @@ function AboutUs() {
             to assist you.
           </p>
 
-          <a href="mailto:supportmember@gmail.com">
-            supportmember@gmail.com
+          <a href="mailto:supportmemberhub@gmail.com">
+            supportmemberhub@gmail.com
           </a>
         </div>
       </div>

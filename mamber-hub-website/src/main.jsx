@@ -1,9 +1,8 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import {
-  
- ArrowRight, Download, Users, CreditCard, PlayCircle, BarChart3,
-ShieldCheck, Smartphone, CheckCircle2, MessageCircle, Music2, Menu, X
+  ArrowRight, Download, Users, CreditCard, PlayCircle, BarChart3,
+  ShieldCheck, MessageCircle, Music2, Menu, X, Instagram, Facebook, Mail
 } from "lucide-react";
 
 import "./styles.css";
@@ -12,6 +11,7 @@ import ContactUs from "./pages/ContactUs";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import AboutUs from "./pages/AboutUs";
 import TermsConditions from "./pages/TermsConditions";
+import { APK_URL, SOCIAL_LINKS, SUPPORT_EMAIL, WHATSAPP_URL } from "./links";
 
 const features = [
   { icon: Users, title: "Member Management", text: "Add, view and manage all your members easily." },
@@ -53,7 +53,7 @@ function App() {
           <a href="#how" onClick={closeMenu}>How It Works</a>
           <a href="#pricing" onClick={closeMenu}>Pricing</a>
           <a href="#contact" onClick={closeMenu}>Contact</a>
-          <a className="nav-cta" href="#download" onClick={closeMenu}>Get Started</a>
+          <a className="nav-cta" href="#install" onClick={closeMenu}>Get Started</a>
         </nav>
       </header>
 
@@ -67,13 +67,10 @@ function App() {
               manage members, payments, videos and membership activities — all in one place.
             </p>
             <div className="actions">
-<a
-  className="btn primary"
-  href="https://github.com/MemberHub1/mamber-hub-website/releases/latest/download/app-debug.apk"
-  download
->
-  <Download size={19}/> Download App
-</a>              <a className="btn outline" href="#features">Get Started <ArrowRight size={18}/></a>
+              <a className="btn primary" href={APK_URL} download>
+                <Download size={19}/> Download App
+              </a>
+              <a className="btn outline" href="#install">Get Started <ArrowRight size={18}/></a>
             </div>
             <div className="trust-row">
               <span><ShieldCheck size={21}/> Secure & Reliable</span>
@@ -157,11 +154,7 @@ function App() {
   </div>
 
   <div className="install-action">
-    <a
-      className="btn primary"
-      href="https://github.com/MemberHub1/mamber-hub-website/releases/latest/download/app-debug.apk"
-      download
-    >
+    <a className="btn primary" href={APK_URL} download>
       <Download size={19} /> Download Mamber Hub APK
     </a>
   </div>
@@ -186,7 +179,7 @@ function App() {
             <p className="eyebrow">APP PREVIEW</p>
             <h2>A Closer Look at <span>Mamber Hub</span></h2>
             <p>Modern, clean and easy-to-use interface designed for a smooth membership experience.</p>
-            <a className="btn primary" href="#contact"><Download size={19}/> Download App</a>
+            <a className="btn primary" href={APK_URL} download><Download size={19}/> Download App</a>
           </div>
           <div className="screens">
             <div className="screen-card"><img src="/assets/app-account-type.jpg" alt="Mamber Hub account type screen" /><small>Account Type</small></div>
@@ -200,11 +193,11 @@ function App() {
         <section id="pricing" className="pricing section">
           <p className="eyebrow center">SIMPLE & TRANSPARENT</p>
           <h2>Membership <span>Plans</span></h2>
-          <p className="section-sub">Plans can be connected to your actual Mamber Hub pricing later.</p>
+          <p className="section-sub">One simple monthly plan. No hidden charges.</p>
           <div className="price-card">
             <div><h3>Monthly Membership</h3><p>Everything your members need to stay connected.</p></div>
             <div className="price">Rs. <strong>1,000</strong><small>/ month</small></div>
-            <a className="btn primary" href="#contact">Get Started <ArrowRight size={18}/></a>
+            <a className="btn primary" href={WHATSAPP_URL} target="_blank" rel="noreferrer">Get Started <ArrowRight size={18}/></a>
           </div>
         </section>
 
@@ -214,7 +207,7 @@ function App() {
             <h2>Manage Your Members Smarter Today!</h2>
             <p>Join Mamber Hub and take your membership business to the next level.</p>
           </div>
-          <a className="btn white" href="https://wa.me/923187630194" target="_blank" rel="noreferrer"><MessageCircle size={19}/> Contact on WhatsApp</a>
+          <a className="btn white" href={WHATSAPP_URL} target="_blank" rel="noreferrer"><MessageCircle size={19}/> Contact on WhatsApp</a>
         </section>
       </main>
 
@@ -259,29 +252,24 @@ function App() {
     <Link to="/contact">Contact Us</Link>
   </div>
 
-  <h4>Follow Us</h4>
+  <div>
+    <h4>Follow Us</h4>
 
-<div className="socials">
-  <a
-    href="https://whatsapp.com/channel/0029Vb8gwbm4yltS5a7z6j2k"
-    target="_blank"
-    rel="noreferrer"
-    aria-label="Mamber Hub WhatsApp Channel"
-    title="WhatsApp Channel"
-  >
-    <MessageCircle size={26} />
-  </a>
+    <div className="socials">
+      {SOCIAL_LINKS.map(({ key, label, href }) => {
+        const Icon = { instagram: Instagram, facebook: Facebook, whatsapp: MessageCircle, tiktok: Music2 }[key];
+        return (
+          <a key={key} href={href} target="_blank" rel="noreferrer" aria-label={`Mamber Hub on ${label}`} title={label}>
+            <Icon size={18} /> <span>{label}</span>
+          </a>
+        );
+      })}
+      <a href={`mailto:${SUPPORT_EMAIL}`} aria-label="Email Mamber Hub" title="Email">
+        <Mail size={18} /> <span>Email</span>
+      </a>
+    </div>
+  </div>
 
-  <a
-    href="https://www.tiktok.com/@mamberhubofficial?_r=1&_t=ZS-9A52IOzCHmp"
-    target="_blank"
-    rel="noreferrer"
-    aria-label="Mamber Hub TikTok"
-    title="TikTok"
-  >
-    <Music2 size={26} />
-  </a>
-</div>
   <div className="copyright">
     © 2026 Mamber Hub. All rights reserved.
   </div>

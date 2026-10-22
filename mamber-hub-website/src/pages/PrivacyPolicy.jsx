@@ -1,10 +1,12 @@
 import React from "react";
+import PageTopBar from "./PageTopBar";
 
 function PrivacyPolicy() {
   return (
     <div className="contact-page">
+      <PageTopBar />
       <div className="contact-container">
-        <p className="eyebrow">MEMBER HUB</p>
+        <p className="eyebrow">MAMBER HUB</p>
 
         <h1>Privacy <span>Policy</span></h1>
 
@@ -18,7 +20,7 @@ function PrivacyPolicy() {
           <h2>1. Information We Collect</h2>
           <p>
             We may collect information that you provide when you create
-            an account, contact us, or use Member Hub services.
+            an account, contact us, or use Mamber Hub services.
           </p>
         </div>
 
@@ -54,8 +56,8 @@ function PrivacyPolicy() {
             at:
           </p>
 
-          <a href="mailto:supportmember@gmail.com">
-            supportmember@gmail.com
+          <a href="mailto:supportmemberhub@gmail.com">
+            supportmemberhub@gmail.com
           </a>
         </div>
 

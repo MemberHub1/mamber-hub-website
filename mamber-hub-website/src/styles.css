@@ -623,3 +623,39 @@
     margin-top: 8px;
   }
 }
+/* ================================
+   INNER PAGE TOP BAR + SOCIAL LINKS
+================================ */
+.page-topbar {
+  width: min(1000px, 100%);
+  margin: -80px auto 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.page-topbar .brand { color: #fff; text-decoration: none; }
+.page-topbar .brand strong { font-size: 20px; }
+.back-home {
+  color: #20e0a5;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  border: 1px solid rgba(32, 224, 165, 0.4);
+  padding: 8px 14px;
+  border-radius: 999px;
+}
+.back-home:hover { background: rgba(32, 224, 165, 0.12); }
+
+.footer .socials a {
+  display: flex !important;
+  align-items: center;
+  gap: 8px;
+}
+.contact-socials { display: flex; flex-wrap: wrap; gap: 6px 16px; }
+.contact-socials a { margin-top: 0 !important; }
+
+@media (max-width: 480px) {
+  .page-topbar { margin-top: -90px; }
+  .back-home { font-size: 13px; padding: 7px 12px; }
+}

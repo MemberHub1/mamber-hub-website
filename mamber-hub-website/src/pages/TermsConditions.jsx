@@ -1,10 +1,12 @@
 import React from "react";
+import PageTopBar from "./PageTopBar";
 
 function TermsConditions() {
   return (
     <div className="contact-page">
+      <PageTopBar />
       <div className="contact-container">
-        <p className="eyebrow">MEMBER HUB</p>
+        <p className="eyebrow">MAMBER HUB</p>
 
         <h1>Terms & <span>Conditions</span></h1>
 
@@ -60,8 +62,8 @@ function TermsConditions() {
             For questions about these Terms & Conditions, contact us at:
           </p>
 
-          <a href="mailto:supportmember@gmail.com">
-            supportmember@gmail.com
+          <a href="mailto:supportmemberhub@gmail.com">
+            supportmemberhub@gmail.com
           </a>
         </div>
 

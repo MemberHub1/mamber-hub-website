@@ -11,6 +11,7 @@ import ContactUs from "./pages/ContactUs";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import AboutUs from "./pages/AboutUs";
 import TermsConditions from "./pages/TermsConditions";
+import DeleteAccount from "./pages/DeleteAccount";
 import { APK_URL, SOCIAL_LINKS, SUPPORT_EMAIL, WHATSAPP_URL } from "./links";
 
 const features = [
@@ -249,6 +250,7 @@ function App() {
     <Link to="/contact">Help Center</Link>
     <Link to="/privacy-policy">Privacy Policy</Link>
     <Link to="/terms">Terms & Conditions</Link>
+    <Link to="/delete-account">Delete Account</Link>
     <Link to="/contact">Contact Us</Link>
   </div>
 
@@ -290,6 +292,8 @@ createRoot(document.getElementById("root")).render(
       <Route path="/about" element={<AboutUs />} />
 
       <Route path="/terms" element={<TermsConditions />} />
+
+      <Route path="/delete-account" element={<DeleteAccount />} />
     </Routes>
   </BrowserRouter>
 );

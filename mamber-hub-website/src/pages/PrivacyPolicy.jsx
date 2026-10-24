@@ -86,9 +86,10 @@ const sections = [
     title: "7. Your Choices and Account Deletion",
     body: (
       <p>
-        You can view and update your profile inside the app. You can delete
-        your account at any time from inside the app, or by following the
-        steps on our <Link to="/delete-account">Delete Account</Link> page.
+        You can view and update your profile inside the app. You can ask for
+        your account to be deleted at any time, through your group admin or
+        by contacting us, as explained on our{" "}
+        <Link to="/delete-account">Delete Account</Link> page.
       </p>
     ),
   },

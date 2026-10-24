@@ -23,19 +23,18 @@ function DeleteAccount() {
         </p>
 
         <div className="contact-card">
-          <h2>Option 1: Delete inside the app</h2>
-          <ol>
-            <li>Open the Mamber Hub app and sign in.</li>
-            <li>Go to your Profile / Settings.</li>
-            <li>Tap <strong>Delete Account</strong> and confirm.</li>
-          </ol>
-          <p>Your account is removed right away and you are signed out.</p>
+          <h2>Option 1: Ask your group admin</h2>
+          <p>
+            Your group admin can permanently delete your account from the
+            Mamber Hub app (Members &rarr; Delete). Your account and data are
+            removed right away.
+          </p>
         </div>
 
         <div className="contact-card">
-          <h2>Option 2: Request deletion without the app</h2>
+          <h2>Option 2: Request deletion from Mamber Hub</h2>
           <p>
-            If you no longer have the app, send us a request from the email
+            Send us a request from the email
             address or phone number registered on your account. We will
             confirm and delete your account within 7 days.
           </p>

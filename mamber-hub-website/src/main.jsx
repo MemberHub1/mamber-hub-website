@@ -2,7 +2,8 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import {
   ArrowRight, Download, Users, CreditCard, PlayCircle, BarChart3,
-  ShieldCheck, MessageCircle, Music2, Menu, X, Instagram, Facebook, Mail
+  ShieldCheck, MessageCircle, Music2, Menu, X, Instagram, Facebook, Mail,
+  Crown, Check, Gift, Bell, LayoutDashboard, ChevronDown
 } from "lucide-react";
 
 import "./styles.css";
@@ -12,20 +13,42 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import AboutUs from "./pages/AboutUs";
 import TermsConditions from "./pages/TermsConditions";
 import DeleteAccount from "./pages/DeleteAccount";
-import { APK_URL, SOCIAL_LINKS, SUPPORT_EMAIL, WHATSAPP_URL } from "./links";
+import {
+  APK_URL, APP_VERSION, APP_SIZE, MIN_ANDROID, PLANS,
+  SOCIAL_LINKS, SUPPORT_EMAIL, WHATSAPP_URL
+} from "./links";
 
 const features = [
-  { icon: Users, title: "Member Management", text: "Add, view and manage all your members easily." },
-  { icon: CreditCard, title: "Payment Management", text: "Track paid and unpaid memberships with ease." },
-  { icon: PlayCircle, title: "Video Gallery", text: "Share and manage videos for your members." },
-  { icon: BarChart3, title: "Admin Dashboard", text: "Get complete insights and reports in one place." }
+  { icon: LayoutDashboard, title: "Member Dashboard", text: "See your plan, membership status and expiry date at a glance." },
+  { icon: PlayCircle, title: "Video Library", text: "Watch all member videos, streamed securely inside the app." },
+  { icon: Crown, title: "Basic & Premium Plans", text: "Pick the ad-supported Basic plan or go ad-free with Premium." },
+  { icon: CreditCard, title: "Easy Payments", text: "Pay with EasyPaisa or JazzCash and upload your payment proof in the app." },
+  { icon: Gift, title: "Referral Codes", text: "Every member gets a personal code (MBR001, MBR002…) to invite friends." },
+  { icon: Bell, title: "Instant Notifications", text: "Get updates about payments, plans and new videos right away." },
+  { icon: ShieldCheck, title: "Secure Sign-in", text: "Sign up with email or Google. Your Gmail is verified once to protect your account." },
+  { icon: BarChart3, title: "Admin Dashboard", text: "Admins see real member counts, collections, payments and account tools." }
 ];
 
 const steps = [
-  ["01", "Register", "Create your account and sign up as a member."],
-  ["02", "Admin Approval", "Your account will be verified by admin."],
-  ["03", "Membership Payment", "Make the payment and activate your membership."],
-  ["04", "Access Mamber Hub", "Enjoy videos and all member benefits."]
+  ["01", "Download & Register", "Install the app and sign up with your email or your Google account."],
+  ["02", "Verify Your Gmail", "Confirm your email once. After that you go straight to your dashboard."],
+  ["03", "Choose a Plan", "Open Videos, pick Basic or Premium, then pay and upload your payment proof."],
+  ["04", "Enjoy Mamber Hub", "As soon as your payment is verified, all member videos unlock."]
+];
+
+const faqs = [
+  ["Is the Mamber Hub app free to download?",
+    "Yes. Downloading the app, creating an account and using your dashboard are free. You only pay when you choose a Basic or Premium plan to watch member videos."],
+  ["What is the difference between Basic and Premium?",
+    "Both plans unlock all member videos for 30 days. Basic shows ads in the app. Premium removes all ads."],
+  ["How do I pay for a plan?",
+    "Choose a plan in the app, pay with EasyPaisa or JazzCash, and upload a screenshot of your payment. Your plan becomes active once the admin verifies the payment."],
+  ["Does my plan renew automatically?",
+    "No. Nothing is charged automatically. When your 30 days end, you can renew from the app whenever you want."],
+  ["I get “App not installed” when I install the APK. What should I do?",
+    "Uninstall any older Mamber Hub app from your phone first, then install the new APK again."],
+  ["How can I delete my account?",
+    "Open the app, go to Profile and tap “Delete my account”. You can also ask us by email or WhatsApp."]
 ];
 
 function App() {
@@ -52,7 +75,8 @@ function App() {
           <a href="#home" onClick={closeMenu}>Home</a>
           <a href="#features" onClick={closeMenu}>Features</a>
           <a href="#how" onClick={closeMenu}>How It Works</a>
-          <a href="#pricing" onClick={closeMenu}>Pricing</a>
+          <a href="#pricing" onClick={closeMenu}>Plans</a>
+          <a href="#faq" onClick={closeMenu}>FAQ</a>
           <a href="#contact" onClick={closeMenu}>Contact</a>
           <a className="nav-cta" href="#install" onClick={closeMenu}>Get Started</a>
         </nav>
@@ -62,17 +86,21 @@ function App() {
         <section id="home" className="hero">
           <div className="hero-copy">
             <p className="eyebrow">ALL-IN-ONE MEMBERSHIP SOLUTION</p>
-            <h1>Manage Your Members.<br /><span>Simplify Your Business.</span></h1>
+            <h1>Join. Watch.<br /><span>Grow Together.</span></h1>
             <p className="hero-text">
-              Mamber Hub is a modern membership management platform where you can
-              manage members, payments, videos and membership activities — all in one place.
+              Mamber Hub is the membership app for our community. Sign up in minutes,
+              verify your Gmail, choose a Basic or Premium plan and unlock every member
+              video — while admins manage members and payments in one place.
             </p>
             <div className="actions">
-              <a className="btn primary" href={APK_URL} download>
+              <a className="btn primary" href={APK_URL}>
                 <Download size={19}/> Download App
               </a>
-              <a className="btn outline" href="#install">Get Started <ArrowRight size={18}/></a>
+              <a className="btn outline" href="#pricing">See Plans <ArrowRight size={18}/></a>
             </div>
+            <p className="version-line">
+              Latest version {APP_VERSION} · {MIN_ANDROID} · {APP_SIZE}
+            </p>
             <div className="trust-row">
               <span><ShieldCheck size={21}/> Secure & Reliable</span>
               <span><Users size={21}/> Easy to Use</span>
@@ -93,7 +121,7 @@ function App() {
         <section id="features" className="section light">
           <p className="eyebrow center">POWERFUL FEATURES</p>
           <h2>Everything You Need in <span>One App</span></h2>
-          <p className="section-sub">Mamber Hub gives you the tools to manage your membership business efficiently.</p>
+          <p className="section-sub">Everything members and admins use every day, built into one simple Android app.</p>
           <div className="feature-grid">
             {features.map(({icon: Icon, title, text}) => (
               <article className="feature-card" key={title}>
@@ -110,6 +138,7 @@ function App() {
   <h2>How to Install <span>Mamber Hub</span></h2>
   <p className="section-sub">
     Download and install the Mamber Hub Android app in a few simple steps.
+    Version {APP_VERSION} · {MIN_ANDROID} · {APP_SIZE}
   </p>
 
   <div className="install-steps">
@@ -155,9 +184,13 @@ function App() {
   </div>
 
   <div className="install-action">
-    <a className="btn primary" href={APK_URL} download>
+    <a className="btn primary" href={APK_URL}>
       <Download size={19} /> Download Mamber Hub APK
     </a>
+    <p className="install-note">
+      Have an older Mamber Hub app on your phone? Uninstall it first, then install
+      this version.
+    </p>
   </div>
 </section>
  <section id="how" className="section process">
@@ -180,7 +213,7 @@ function App() {
             <p className="eyebrow">APP PREVIEW</p>
             <h2>A Closer Look at <span>Mamber Hub</span></h2>
             <p>Modern, clean and easy-to-use interface designed for a smooth membership experience.</p>
-            <a className="btn primary" href={APK_URL} download><Download size={19}/> Download App</a>
+            <a className="btn primary" href={APK_URL}><Download size={19}/> Download App</a>
           </div>
           <div className="screens">
             <div className="screen-card"><img src="/assets/app-account-type.jpg" alt="Mamber Hub account type screen" /><small>Account Type</small></div>
@@ -194,19 +227,58 @@ function App() {
         <section id="pricing" className="pricing section">
           <p className="eyebrow center">SIMPLE & TRANSPARENT</p>
           <h2>Membership <span>Plans</span></h2>
-          <p className="section-sub">One simple monthly plan. No hidden charges.</p>
-          <div className="price-card">
-            <div><h3>Monthly Membership</h3><p>Everything your members need to stay connected.</p></div>
-            <div className="price">Rs. <strong>1,000</strong><small>/ month</small></div>
-            <a className="btn primary" href={WHATSAPP_URL} target="_blank" rel="noreferrer">Get Started <ArrowRight size={18}/></a>
+          <p className="section-sub">
+            Two simple plans, each for 30 days. No hidden charges and no automatic renewal.
+          </p>
+          <div className="plans-grid">
+            {PLANS.map((plan) => {
+              const premium = plan.id === "premium";
+              return (
+                <article className={premium ? "plan-card premium" : "plan-card"} key={plan.id}>
+                  {plan.badge && <span className="plan-badge"><Crown size={14}/> {plan.badge}</span>}
+                  <h3>{plan.name}</h3>
+                  <p className="plan-tagline">{plan.tagline}</p>
+                  <div className="plan-price">
+                    <span>Rs.</span>
+                    <strong>{plan.price.toLocaleString("en-PK")}</strong>
+                    <small>/ {plan.days} days</small>
+                  </div>
+                  <ul className="plan-features">
+                    {plan.features.map((f) => (
+                      <li key={f}><Check size={17}/> {f}</li>
+                    ))}
+                  </ul>
+                  <a className={premium ? "btn primary" : "btn dark"} href={APK_URL}>
+                    <Download size={18}/> Get {plan.name} in the App
+                  </a>
+                </article>
+              );
+            })}
+          </div>
+          <p className="plans-note">
+            Subscribe from the Videos section of the app. Pay with EasyPaisa or JazzCash and
+            upload your payment proof. Your plan starts as soon as the admin verifies your payment.
+          </p>
+        </section>
+
+        <section id="faq" className="section faq">
+          <p className="eyebrow center">HAVE QUESTIONS?</p>
+          <h2>Frequently Asked <span>Questions</span></h2>
+          <div className="faq-list">
+            {faqs.map(([q, a]) => (
+              <details className="faq-item" key={q}>
+                <summary>{q}<ChevronDown size={18}/></summary>
+                <p>{a}</p>
+              </details>
+            ))}
           </div>
         </section>
 
         <section id="contact" className="cta">
           <div>
             <p className="eyebrow">READY TO GET STARTED?</p>
-            <h2>Manage Your Members Smarter Today!</h2>
-            <p>Join Mamber Hub and take your membership business to the next level.</p>
+            <h2>Join Mamber Hub Today!</h2>
+            <p>Download the app, verify your Gmail and pick the plan that suits you. Questions? Message us on WhatsApp.</p>
           </div>
           <a className="btn white" href={WHATSAPP_URL} target="_blank" rel="noreferrer"><MessageCircle size={19}/> Contact on WhatsApp</a>
         </section>
@@ -228,8 +300,8 @@ function App() {
     </div>
 
     <p>
-      Mamber Hub is a modern membership management platform designed
-      to make your business simple, organized and successful.
+      Mamber Hub is a membership app for members and admins: videos,
+      Basic and Premium plans, payments and members in one place.
     </p>
   </div>
 
@@ -239,7 +311,9 @@ function App() {
     <a href="#home">Home</a>
     <a href="#features">Features</a>
     <a href="#how">How It Works</a>
-    <a href="#pricing">Pricing</a>
+    <a href="#pricing">Plans</a>
+    <a href="#faq">FAQ</a>
+    <a href={APK_URL}>Download App</a>
 
     <Link to="/about">About Us</Link>
   </div>

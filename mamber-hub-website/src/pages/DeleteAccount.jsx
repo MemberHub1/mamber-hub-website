@@ -19,20 +19,28 @@ function DeleteAccount() {
 
         <p className="contact-intro">
           You can delete your Mamber Hub account and its data at any time.
-          Choose one of the two options below.
+          Choose one of the options below.
         </p>
 
         <div className="contact-card">
-          <h2>Option 1: Ask your group admin</h2>
+          <h2>Option 1: Delete it yourself in the app</h2>
           <p>
-            Your group admin can permanently delete your account from the
-            Mamber Hub app (Members &rarr; Delete). Your account and data are
-            removed right away.
+            Open Mamber Hub, go to <strong>Profile</strong> and tap{" "}
+            <strong>Delete my account</strong>. Confirm, and your account and
+            data are removed right away.
           </p>
         </div>
 
         <div className="contact-card">
-          <h2>Option 2: Request deletion from Mamber Hub</h2>
+          <h2>Option 2: Ask an admin</h2>
+          <p>
+            A Mamber Hub admin can permanently delete your account from the
+            app. Your account and data are removed right away.
+          </p>
+        </div>
+
+        <div className="contact-card">
+          <h2>Option 3: Request deletion from Mamber Hub</h2>
           <p>
             Send us a request from the email
             address or phone number registered on your account. We will
@@ -53,7 +61,7 @@ function DeleteAccount() {
           <h2>What is deleted</h2>
           <ul>
             <li>Your account and sign-in details (name, email, phone number).</li>
-            <li>Your profile and membership details.</li>
+            <li>Your profile, profile photo, referral code and membership plan details.</li>
             <li>Your notification token and any files you uploaded.</li>
           </ul>
           <h2>What may be kept</h2>

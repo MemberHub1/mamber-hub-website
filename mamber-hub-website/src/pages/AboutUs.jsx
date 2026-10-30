@@ -27,8 +27,10 @@ function AboutUs() {
         <div className="contact-card">
           <h2>What We Provide</h2>
           <p>
-            Mamber Hub provides tools for member management, payment
-            tracking, video sharing, reports and administration.
+            Members get a personal dashboard, a library of member videos,
+            Basic and Premium plans, easy payment proof upload and their own
+            referral code. Admins get member management, payment
+            verification, collection reports and account tools.
           </p>
         </div>
 

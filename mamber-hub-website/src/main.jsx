@@ -13,6 +13,9 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import AboutUs from "./pages/AboutUs";
 import TermsConditions from "./pages/TermsConditions";
 import DeleteAccount from "./pages/DeleteAccount";
+import Home from "./pages/Home";
+import SchoolManagement from "./pages/SchoolManagement";
+import SchoolPrivacy from "./pages/SchoolPrivacy";
 import {
   APK_URL, APP_VERSION, APP_SIZE, MIN_ANDROID, PLANS,
   SOCIAL_LINKS, SUPPORT_EMAIL, WHATSAPP_URL
@@ -51,10 +54,17 @@ const faqs = [
     "Open the app, go to Profile and tap “Delete my account”. You can also ask us by email or WhatsApp."]
 ];
 
-function App() {
+function MamberHubLanding() {
   const [open, setOpen] = React.useState(false);
 
   const closeMenu = () => setOpen(false);
+
+  React.useEffect(() => {
+    document.title = "Mamber Hub — Members Together, Growth Forever";
+    const hash = window.location.hash;
+    if (hash) setTimeout(() => document.querySelector(hash)?.scrollIntoView(), 0);
+    else window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="site">
@@ -78,6 +88,7 @@ function App() {
           <a href="#pricing" onClick={closeMenu}>Plans</a>
           <a href="#faq" onClick={closeMenu}>FAQ</a>
           <a href="#contact" onClick={closeMenu}>Contact</a>
+          <Link to="/" onClick={closeMenu}>All Apps</Link>
           <a className="nav-cta" href="#install" onClick={closeMenu}>Get Started</a>
         </nav>
       </header>
@@ -316,6 +327,7 @@ function App() {
     <a href={APK_URL}>Download App</a>
 
     <Link to="/about">About Us</Link>
+    <Link to="/">All Apps</Link>
   </div>
 
   <div>
@@ -347,7 +359,7 @@ function App() {
   </div>
 
   <div className="copyright">
-    © 2026 Mamber Hub. All rights reserved.
+    © 2026 Mamber Hub by Member Digital Solutions. All rights reserved.
   </div>
 </footer>
     </div>
@@ -357,7 +369,13 @@ function App() {
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<App />} />
+      <Route path="/" element={<Home />} />
+
+      <Route path="/mamber-hub" element={<MamberHubLanding />} />
+
+      <Route path="/school-management" element={<SchoolManagement />} />
+
+      <Route path="/school-management/privacy-policy" element={<SchoolPrivacy />} />
 
       <Route path="/contact" element={<ContactUs />} />
 
@@ -368,6 +386,8 @@ createRoot(document.getElementById("root")).render(
       <Route path="/terms" element={<TermsConditions />} />
 
       <Route path="/delete-account" element={<DeleteAccount />} />
+
+      <Route path="*" element={<Home />} />
     </Routes>
   </BrowserRouter>
 );

@@ -30,9 +30,12 @@ const sections = [
     body: (
       <>
         <p>
-          The principal and teachers sign in with their Google account, using Firebase
-          Authentication (a Google service). From Google the app receives only the account's name,
-          verified email address and a sign-in token. We never see your Google password.
+          The principal signs in with a Google account, or with an email address and password,
+          using Firebase Authentication (a Google service). A new email account must be verified by
+          clicking a link sent to that address. From Google the app receives only the account's name,
+          verified email address and a sign-in token; we never see Google or email passwords.
+          Teachers log in on the school's own device with the email the principal added; this
+          teacher login is checked on that device only.
         </p>
         <p>
           To run the 7-day demo and the monthly subscription, we keep one subscription record per

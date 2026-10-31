@@ -76,7 +76,7 @@ const faqs = [
   ["What happens when the demo or the month ends?",
     "The app locks until the next month is paid. Your school data is not deleted — it stays saved on your device and opens again as soon as the subscription is renewed."],
   ["How do the principal and teachers sign in?",
-    "With Google (Gmail). The first verified Gmail that signs in on a device becomes the Principal. The Principal then adds teachers' Gmail addresses in Settings → Teachers, and those teachers sign in on the same device with their own Google account."],
+    "The login page has two tabs. Principal: sign in with Google, or with email and password — a verification link is sent to the email, and the dashboard opens only after it is clicked. The first verified account on a device becomes the Principal. Teacher: the Principal adds each teacher's email in Settings → Teachers, and the teacher logs in on that device by typing just that email."],
   ["Where is my school's data stored?",
     "On your own device. The Windows app saves data on your computer, and the web app saves it in the browser of the phone or computer you use. Student and school records are not sent to our servers — only the principal's email, the school name and the teachers' emails are kept with your subscription."],
   ["Can I use it on more than one computer or phone?",

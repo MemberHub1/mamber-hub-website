@@ -3,17 +3,21 @@
 export const COMPANY_NAME = "Member Digital Solutions";
 
 // School Management System
-// The Windows installer is attached to a fixed GitHub release tag (school-v1.0.0)
+// The Windows installer is attached to a fixed GitHub release tag (school-v1.0.1)
 // that is NOT marked "latest", so the Mamber Hub "latest" APK link keeps working.
-export const SCHOOL_VERSION = "1.0.0";
-export const SCHOOL_WIN_SIZE = "125 MB";
+export const SCHOOL_VERSION = "1.0.1";
+export const SCHOOL_WIN_SIZE = "138 MB";
 export const SCHOOL_WIN_URL =
-  "https://github.com/MemberHub1/mamber-hub-website/releases/download/school-v1.0.0/School-Management-System-Setup-1.0.0.exe";
+  "https://github.com/MemberHub1/mamber-hub-website/releases/download/school-v1.0.1/School-Management-System-Setup-1.0.1.exe";
 export const SCHOOL_WEB_URL = "/school-app/";
 export const SCHOOL_ICON = "/assets/school-logo-192.jpg";
 export const SCHOOL_LOGO_WIDE = "/assets/school-logo.jpg";
 // Set to true once the new Windows installer (with the 7-day demo) is on GitHub.
 export const SCHOOL_WIN_READY = false;
+// 7-day free demo, then a monthly subscription (School Management only).
+export const SCHOOL_DEMO_DAYS = 7;
+export const SCHOOL_PRICE_PKR = 1500;
+export const SCHOOL_PAY_NUMBER = "0316-7630171"; // EasyPaisa and JazzCash
 // Every GitHub release must attach the app as "MamberHub.apk" so this link
 // always downloads the newest version.
 export const APK_URL =

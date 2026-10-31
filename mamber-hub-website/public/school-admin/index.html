@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>School Admin — Subscriptions</title>
+  <link rel="icon" href="/assets/school-logo-192.jpg" />
+  <style>
+    :root {
+      --bg: #f1f5f9; --card: #ffffff; --ink: #0f172a; --muted: #64748b; --line: #e2e8f0;
+      --green: #059669; --green-bg: #ecfdf5; --amber: #b45309; --amber-bg: #fffbeb; --red: #dc2626; --red-bg: #fef2f2;
+      --blue: #2563eb;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font-family: Inter, "Segoe UI", system-ui, sans-serif; }
+    header { background: #0f172a; color: #fff; padding: 14px 16px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    header img { width: 38px; height: 38px; border-radius: 10px; object-fit: cover; }
+    header h1 { font-size: 18px; margin: 0; flex: 1; min-width: 180px; }
+    header .who { font-size: 13px; opacity: .8; }
+    main { max-width: 1100px; margin: 0 auto; padding: 20px 16px 60px; }
+    button { font: inherit; cursor: pointer; border-radius: 10px; border: 1px solid var(--line); background: #fff; padding: 8px 12px; font-weight: 700; font-size: 13px; }
+    button:disabled { opacity: .5; cursor: default; }
+    .primary { background: var(--blue); border-color: var(--blue); color: #fff; }
+    .ok { background: var(--green); border-color: var(--green); color: #fff; }
+    .danger { color: var(--red); border-color: #fecaca; }
+    .ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,.3); }
+    .center { text-align: center; padding: 60px 16px; }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 18px; }
+    .stat { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px; }
+    .stat b { display: block; font-size: 24px; }
+    .stat span { color: var(--muted); font-size: 13px; }
+    .toolbar { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 14px; }
+    .toolbar input { flex: 1; min-width: 200px; height: 40px; border: 1px solid var(--line); border-radius: 10px; padding: 0 12px; font: inherit; }
+    .list { display: grid; gap: 12px; }
+    .school { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px; }
+    .school.pending { border-color: #fcd34d; box-shadow: 0 0 0 3px #fef3c7; }
+    .row { display: flex; gap: 10px; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; }
+    .name { font-weight: 800; font-size: 16px; }
+    .email { color: var(--muted); font-size: 13px; word-break: break-all; }
+    .badge { display: inline-block; font-size: 12px; font-weight: 800; padding: 3px 10px; border-radius: 999px; }
+    .b-active { background: var(--green-bg); color: var(--green); }
+    .b-demo { background: #eff6ff; color: var(--blue); }
+    .b-expired { background: var(--red-bg); color: var(--red); }
+    .b-blocked { background: #1f2937; color: #fff; }
+    .meta { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 10px; font-size: 13px; color: var(--muted); }
+    .meta b { color: var(--ink); }
+    .pay { margin-top: 12px; border-radius: 12px; padding: 12px; font-size: 13px; }
+    .pay.pending { background: var(--amber-bg); color: var(--amber); border: 1px solid #fde68a; }
+    .pay.approved { background: var(--green-bg); color: var(--green); }
+    .pay.rejected { background: var(--red-bg); color: var(--red); }
+    .pay code { font-size: 14px; font-weight: 800; color: var(--ink); background: #fff; padding: 1px 6px; border-radius: 6px; }
+    .actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+    .msg { margin: 10px 0; font-weight: 700; font-size: 14px; }
+    .err { color: var(--red); }
+    .hidden { display: none !important; }
+    .note { width: 100%; margin-top: 8px; height: 36px; border: 1px solid var(--line); border-radius: 8px; padding: 0 10px; font: inherit; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="/assets/school-logo-192.jpg" alt="" />
+    <h1>School Management — Subscriptions</h1>
+    <span id="who" class="who"></span>
+    <button id="signout" class="ghost hidden" type="button">Sign out</button>
+  </header>
+
+  <main>
+    <div id="signedOut" class="center hidden">
+      <p style="color:var(--muted);margin-bottom:18px">Admin only. Sign in with the Member Digital Solutions Google account.</p>
+      <button id="signin" class="primary" type="button">Sign in with Google</button>
+      <p id="authMsg" class="msg err"></p>
+    </div>
+
+    <div id="loading" class="center">Loading…</div>
+
+    <div id="app" class="hidden">
+      <div class="stats">
+        <div class="stat"><b id="sPending">0</b><span>Payments waiting</span></div>
+        <div class="stat"><b id="sActive">0</b><span>Active subscriptions</span></div>
+        <div class="stat"><b id="sDemo">0</b><span>On free demo</span></div>
+        <div class="stat"><b id="sExpired">0</b><span>Expired / blocked</span></div>
+      </div>
+      <div class="toolbar">
+        <input id="search" type="search" placeholder="Search school name, email, TID or mobile number" />
+        <button id="reload" type="button">Refresh</button>
+      </div>
+      <p id="appMsg" class="msg"></p>
+      <div id="list" class="list"></div>
+    </div>
+  </main>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+    import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+    import {
+      getFirestore, collection, getDocs, doc, updateDoc, serverTimestamp, Timestamp, arrayUnion
+    } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+
+    const app = initializeApp({
+      apiKey: "AIzaSyCJahqp6bUzU0JTW8Hk78oJABs2StK8Vjk",
+      authDomain: "school-management-system-d3e44.firebaseapp.com",
+      projectId: "school-management-system-d3e44",
+      appId: "1:413750037301:web:8eb34713f74988a1f19a7c",
+    });
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    const DAY = 24 * 60 * 60 * 1000;
+    const DEMO_DAYS = 7;
+    const MONTH_DAYS = 30;
+    const $ = (id) => document.getElementById(id);
+    const esc = (v) => String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+    const ms = (ts) => (ts && typeof ts.toMillis === "function" ? ts.toMillis() : (typeof ts === "number" ? ts : null));
+    const fmt = (t) => (t ? new Date(t).toLocaleString("en-GB", { day: "numeric", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" }) : "—");
+    const fmtDay = (t) => (t ? new Date(t).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }) : "—");
+
+    let schools = [];
+
+    function show(id) {
+      for (const s of ["signedOut", "loading", "app"]) $(s).classList.toggle("hidden", s !== id);
+    }
+
+    function stateOf(d, now) {
+      if (d.status === "blocked") return { key: "blocked", label: "Blocked" };
+      const until = ms(d.activeUntil);
+      if (d.status === "active") {
+        if (!until || until > now) return { key: "active", label: "Active", until };
+        return { key: "expired", label: "Subscription expired", until };
+      }
+      const start = ms(d.demoStartedAt) || now;
+      const ends = start + DEMO_DAYS * DAY;
+      if (now < ends) return { key: "demo", label: "Demo", ends };
+      return { key: "expired", label: "Demo ended", ends };
+    }
+
+    function render() {
+      const now = Date.now();
+      const q = $("search").value.trim().toLowerCase();
+      const rows = schools
+        .map((s) => ({ ...s, st: stateOf(s.data, now), pending: s.data.payment && s.data.payment.status === "pending" }))
+        .filter((s) => {
+          if (!q) return true;
+          const d = s.data, p = d.payment || {};
+          return [d.schoolName, d.principalEmail, p.trxId, p.sender, s.id].some((v) => String(v || "").toLowerCase().includes(q));
+        })
+        .sort((a, b) => (b.pending - a.pending) || ((ms(b.data.payment?.submittedAt) || 0) - (ms(a.data.payment?.submittedAt) || 0)) || ((ms(b.data.updatedAt) || 0) - (ms(a.data.updatedAt) || 0)));
+
+      $("sPending").textContent = schools.filter((s) => s.data.payment && s.data.payment.status === "pending").length;
+      const counts = { active: 0, demo: 0, expired: 0 };
+      for (const s of schools) { const k = stateOf(s.data, now).key; counts[k === "blocked" ? "expired" : k]++; }
+      $("sActive").textContent = counts.active; $("sDemo").textContent = counts.demo; $("sExpired").textContent = counts.expired;
+
+      if (!rows.length) { $("list").innerHTML = `<p class="center" style="color:var(--muted)">${schools.length ? "No match." : "No schools yet."}</p>`; return; }
+
+      $("list").innerHTML = rows.map((s) => {
+        const d = s.data, p = d.payment, st = s.st;
+        const badge = { active: "b-active", demo: "b-demo", expired: "b-expired", blocked: "b-blocked" }[st.key];
+        const when = st.key === "active" ? `Active until <b>${fmtDay(st.until)}</b>`
+          : st.key === "demo" ? `Demo ends <b>${fmtDay(st.ends)}</b>`
+          : st.until ? `Ended <b>${fmtDay(st.until)}</b>` : st.ends ? `Demo ended <b>${fmtDay(st.ends)}</b>` : "";
+        const payBox = p ? `
+          <div class="pay ${esc(p.status)}">
+            <div><b>${p.status === "pending" ? "Payment waiting for approval" : p.status === "approved" ? "Last payment approved" : "Payment rejected"}</b></div>
+            <div style="margin-top:6px">${esc(p.method)} · TID <code>${esc(p.trxId)}</code> · from <code>${esc(p.sender)}</code> · Rs. ${esc(p.amount)} · ${fmt(ms(p.submittedAt))}</div>
+            ${p.status === "pending" ? `<input class="note" data-note="${esc(s.id)}" placeholder="Reason if rejecting (optional, shown to the school)" />` : ""}
+          </div>` : "";
+        return `
+          <div class="school ${s.pending ? "pending" : ""}">
+            <div class="row">
+              <div>
+                <div class="name">${esc(d.schoolName || "School")}</div>
+                <div class="email">${esc(d.principalEmail || "")}</div>
+              </div>
+              <span class="badge ${badge}">${esc(st.label)}</span>
+            </div>
+            <div class="meta">
+              <span>${when}</span>
+              <span>Teachers: <b>${Array.isArray(d.teacherEmails) ? d.teacherEmails.length : 0}</b></span>
+              <span>Platform: <b>${esc(d.platform || "—")}</b></span>
+              <span>Demo started: <b>${fmtDay(ms(d.demoStartedAt))}</b></span>
+            </div>
+            ${payBox}
+            <div class="actions">
+              ${s.pending ? `<button class="ok" data-act="approve" data-id="${esc(s.id)}">Approve &amp; activate 1 month</button>
+                             <button class="danger" data-act="reject" data-id="${esc(s.id)}">Reject payment</button>`
+                          : `<button data-act="add" data-id="${esc(s.id)}">Add 1 month</button>`}
+              ${st.key === "blocked" ? `<button data-act="unblock" data-id="${esc(s.id)}">Unblock</button>`
+                                     : `<button class="danger" data-act="block" data-id="${esc(s.id)}">Block</button>`}
+            </div>
+          </div>`;
+      }).join("");
+    }
+
+    async function load() {
+      $("appMsg").textContent = "";
+      $("appMsg").className = "msg";
+      try {
+        const snap = await getDocs(collection(db, "licenses"));
+        schools = snap.docs.map((d) => ({ id: d.id, data: d.data() }));
+        show("app");
+        render();
+      } catch (e) {
+        show("signedOut");
+        $("authMsg").textContent = /permission/i.test(String(e && (e.code || e.message)))
+          ? "This Google account is not the admin account."
+          : "Could not load the schools. Check your internet connection.";
+      }
+    }
+
+    async function act(action, id) {
+      const s = schools.find((x) => x.id === id);
+      if (!s) return;
+      const d = s.data, now = Date.now(), ref = doc(db, "licenses", id);
+      const nextUntil = () => Timestamp.fromMillis(Math.max(now, ms(d.activeUntil) || 0) + MONTH_DAYS * DAY);
+      let update;
+      if (action === "approve") {
+        const p = d.payment || {};
+        update = {
+          status: "active",
+          activeUntil: nextUntil(),
+          payment: { ...p, status: "approved", approvedAt: serverTimestamp() },
+          paymentHistory: arrayUnion({ method: p.method || "", trxId: p.trxId || "", sender: p.sender || "", amount: p.amount || 1500, approvedAt: Timestamp.fromMillis(now) }),
+          updatedAt: serverTimestamp(),
+        };
+      } else if (action === "add") {
+        update = { status: "active", activeUntil: nextUntil(), updatedAt: serverTimestamp() };
+      } else if (action === "reject") {
+        const noteEl = document.querySelector(`[data-note="${CSS.escape(id)}"]`);
+        const note = noteEl ? noteEl.value.trim().slice(0, 200) : "";
+        update = { payment: { ...(d.payment || {}), status: "rejected", note, rejectedAt: serverTimestamp() }, updatedAt: serverTimestamp() };
+      } else if (action === "block") {
+        update = { status: "blocked", updatedAt: serverTimestamp() };
+      } else if (action === "unblock") {
+        update = { status: (ms(d.activeUntil) || 0) > now ? "active" : "demo", updatedAt: serverTimestamp() };
+      } else return;
+
+      try {
+        await updateDoc(ref, update);
+        $("appMsg").className = "msg";
+        $("appMsg").style.color = "var(--green)";
+        $("appMsg").textContent = `${d.schoolName || d.principalEmail}: ${{ approve: "payment approved, 1 month added", add: "1 month added", reject: "payment rejected", block: "blocked", unblock: "unblocked" }[action]}.`;
+        await load();
+      } catch (e) {
+        $("appMsg").className = "msg err";
+        $("appMsg").style.color = "";
+        $("appMsg").textContent = "Could not save. " + (e && e.code ? e.code : "");
+      }
+    }
+
+    $("list").addEventListener("click", (e) => {
+      const b = e.target.closest("button[data-act]");
+      if (!b) return;
+      b.disabled = true;
+      act(b.dataset.act, b.dataset.id).finally(() => { b.disabled = false; });
+    });
+    $("search").addEventListener("input", render);
+    $("reload").addEventListener("click", load);
+    $("signin").addEventListener("click", async () => {
+      $("authMsg").textContent = "";
+      try {
+        const provider = new GoogleAuthProvider();
+        provider.setCustomParameters({ prompt: "select_account" });
+        await signInWithPopup(auth, provider);
+      } catch (e) {
+        if (!/popup-closed|cancelled/.test(String(e && e.code))) $("authMsg").textContent = "Sign-in failed. Please try again.";
+      }
+    });
+    $("signout").addEventListener("click", () => signOut(auth));
+
+    onAuthStateChanged(auth, (user) => {
+      $("who").textContent = user ? user.email : "";
+      $("signout").classList.toggle("hidden", !user);
+      if (!user) { show("signedOut"); return; }
+      show("loading");
+      load();
+    });
+  </script>
+</body>
+</html>

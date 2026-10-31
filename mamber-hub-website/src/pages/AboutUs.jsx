@@ -1,14 +1,23 @@
 import React from "react";
 import PageTopBar from "./PageTopBar";
+import { COMPANY_LOGO_STACKED, COMPANY_NAME } from "../links";
 
 function AboutUs() {
   return (
     <div className="contact-page">
       <PageTopBar />
       <div className="contact-container">
-        <p className="eyebrow">ABOUT MAMBER HUB</p>
+        <img className="about-logo" src={COMPANY_LOGO_STACKED} alt={COMPANY_NAME} width="220" height="265" />
+
+        <p className="eyebrow">ABOUT {COMPANY_NAME.toUpperCase()}</p>
 
         <h1>About <span>Us</span></h1>
+
+        <p className="contact-intro">
+          {COMPANY_NAME} builds simple apps that make work simple — Mamber Hub for
+          communities and memberships, and School Management for schools. We are based
+          in Lahore, Pakistan.
+        </p>
 
         <p className="contact-intro">
           Mamber Hub is a modern membership management platform designed

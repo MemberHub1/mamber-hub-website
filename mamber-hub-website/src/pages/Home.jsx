@@ -5,7 +5,7 @@ import {
   Smartphone, Monitor, Globe, Languages, ShieldCheck, LifeBuoy, RefreshCw, Mail
 } from "lucide-react";
 import {
-  APK_URL, APP_VERSION, COMPANY_NAME, SCHOOL_ICON, SCHOOL_VERSION,
+  APK_URL, APP_VERSION, COMPANY_NAME, COMPANY_LOGO_WHITE, SCHOOL_ICON, SCHOOL_VERSION,
   SCHOOL_WEB_URL, SCHOOL_WIN_URL, SCHOOL_WIN_READY, SUPPORT_EMAIL, SUPPORT_PHONE, WHATSAPP_URL
 } from "../links";
 
@@ -61,11 +61,7 @@ export default function Home() {
     <div className="site company">
       <header className="header">
         <a className="brand" href="#top" onClick={close}>
-          <span className="company-mark" aria-hidden="true">MD</span>
-          <span>
-            <strong>Member <em>Digital</em></strong>
-            <small>Solutions · Apps that make work simple</small>
-          </span>
+          <img className="company-logo" src={COMPANY_LOGO_WHITE} alt={COMPANY_NAME} width="175" height="60" />
         </a>
         <button className="menu-btn" onClick={() => setOpen(!open)} aria-label="Toggle menu">
           {open ? <X size={24} /> : <Menu size={24} />}
@@ -175,11 +171,7 @@ export default function Home() {
       <footer className="footer">
         <div>
           <div className="brand footer-brand">
-            <span className="company-mark" aria-hidden="true">MD</span>
-            <span>
-              <strong>Member <em>Digital</em></strong>
-              <small>Solutions</small>
-            </span>
+            <img className="company-logo" src={COMPANY_LOGO_WHITE} alt={COMPANY_NAME} width="175" height="60" />
           </div>
           <p>Simple apps for communities, schools and small businesses.</p>
         </div>

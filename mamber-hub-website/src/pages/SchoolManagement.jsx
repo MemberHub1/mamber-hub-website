@@ -72,7 +72,7 @@ const PRICE = `Rs. ${SCHOOL_PRICE_PKR.toLocaleString("en-PK")}`;
 
 const faqs = [
   ["How much does it cost?",
-    `The first ${SCHOOL_DEMO_DAYS} days are a free demo. After that the subscription is ${PRICE} per month. Pay by EasyPaisa or JazzCash to ${SCHOOL_PAY_NUMBER}, then send the payment screenshot and your principal Gmail on WhatsApp. We activate your school for 1 month.`],
+    `The first ${SCHOOL_DEMO_DAYS} days are a free demo. After that the subscription is ${PRICE} per month. Pay by EasyPaisa or JazzCash to ${SCHOOL_PAY_NUMBER}, then open Subscription in the app, enter the Transaction ID (TID) and press Submit payment. Once we check it, your school is activated for 1 month and the app unlocks by itself.`],
   ["What happens when the demo or the month ends?",
     "The app locks until the next month is paid. Your school data is not deleted — it stays saved on your device and opens again as soon as the subscription is renewed."],
   ["How do the principal and teachers sign in?",
@@ -214,11 +214,11 @@ export default function SchoolManagement() {
               <p className="plan-price"><strong>{PRICE}</strong> <span>/ month</span></p>
               <ul className="plan-features">
                 <li><Check size={17} /> Pay by EasyPaisa or JazzCash: <b>{SCHOOL_PAY_NUMBER}</b></li>
-                <li><Check size={17} /> Send the screenshot and principal Gmail on WhatsApp</li>
+                <li><Check size={17} /> Enter the Transaction ID in the app's Subscription page</li>
                 <li><Check size={17} /> We activate your school for 1 month</li>
                 <li><Check size={17} /> Renew each month — your data is never deleted</li>
               </ul>
-              <a className="btn primary" href={WHATSAPP_URL} target="_blank" rel="noreferrer"><MessageCircle size={18} /> Subscribe on WhatsApp</a>
+              <a className="btn primary" href={WHATSAPP_URL} target="_blank" rel="noreferrer"><MessageCircle size={18} /> Questions? WhatsApp us</a>
             </article>
           </div>
         </section>

@@ -18,7 +18,7 @@ const sections = [
       <>
         <p>The school using the app enters and controls all of its data, for example:</p>
         <ul>
-          <li>School profile and user accounts created in the app.</li>
+          <li>School profile and settings.</li>
           <li>Student, admission, attendance, timetable, exam and result records.</li>
           <li>Fee structure, fee payments, invoices, books and book sales.</li>
         </ul>
@@ -26,46 +26,65 @@ const sections = [
     ),
   },
   {
-    title: "3. Where Data Is Stored",
+    title: "3. Google Sign-In and Subscription",
+    body: (
+      <>
+        <p>
+          The principal and teachers sign in with their Google account, using Firebase
+          Authentication (a Google service). From Google the app receives only the account's name,
+          verified email address and a sign-in token. We never see your Google password.
+        </p>
+        <p>
+          To run the 7-day demo and the monthly subscription, we keep one subscription record per
+          school in Google Cloud Firestore: the principal's email, the school name, the teachers'
+          emails added by the principal, the demo start date and the subscription status and end
+          date. Subscription payments are made by EasyPaisa or JazzCash and confirmed by us on
+          WhatsApp; the app does not collect card or bank details.
+        </p>
+      </>
+    ),
+  },
+  {
+    title: "4. Where School Data Is Stored",
     body: (
       <p>
         All school data is stored on the school's own device: on the computer for the Windows
         app, and in the browser of the phone or computer for the web app. The app does not send
-        school data to our servers, and we cannot see it.
+        student, attendance, fee or other school records to our servers, and we cannot see them.
       </p>
     ),
   },
   {
-    title: "4. Sharing",
+    title: "5. Sharing",
     body: (
       <p>
-        We do not collect, sell or share your school's data. The app shows no ads. Data leaves the
+        We do not sell or share your school's data. The app shows no ads. Data leaves the
         device only when you choose to export, print, back up or share a report yourself.
       </p>
     ),
   },
   {
-    title: "5. Keeping Data Safe",
+    title: "6. Keeping Data Safe",
     body: (
       <ul>
-        <li>Protect your device and app accounts with strong passwords.</li>
+        <li>Protect your device and Google accounts with strong passwords and 2-step verification.</li>
         <li>Use the Windows app's Backup option regularly and keep backups in a safe place.</li>
         <li>In the web app, clearing browser or site data deletes the data saved in that browser.</li>
       </ul>
     ),
   },
   {
-    title: "6. Deleting Data",
+    title: "7. Deleting Data",
     body: (
       <p>
         Because data is stored on your device, you can delete it at any time by uninstalling the
         Windows app and removing its data, or by clearing the site data for the web app in your
-        browser.
+        browser. To delete your school's subscription record, contact us and we will remove it.
       </p>
     ),
   },
   {
-    title: "7. Children's Information",
+    title: "8. Children's Information",
     body: (
       <p>
         Student records may include information about children. This information is entered and
@@ -74,7 +93,7 @@ const sections = [
     ),
   },
   {
-    title: "8. Changes to This Policy",
+    title: "9. Changes to This Policy",
     body: (
       <p>
         We may update this policy from time to time. The latest version will always be on this
@@ -109,7 +128,7 @@ export default function SchoolPrivacy() {
         ))}
 
         <div className="contact-card">
-          <h2>9. Contact Us</h2>
+          <h2>10. Contact Us</h2>
           <p>If you have questions about this policy, contact us:</p>
           <p>
             Email: <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>
@@ -118,7 +137,7 @@ export default function SchoolPrivacy() {
           </p>
         </div>
 
-        <p className="contact-intro">Last updated: 30 October 2026</p>
+        <p className="contact-intro">Last updated: 31 October 2026</p>
       </div>
     </div>
   );

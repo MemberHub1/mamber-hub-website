@@ -4,11 +4,12 @@ import {
   Users, CalendarCheck, CalendarDays, ClipboardList, Receipt, BookOpen,
   FileSpreadsheet, LayoutDashboard, Languages, WifiOff, Download, ExternalLink,
   Monitor, Smartphone, HardDrive, Printer, AlertTriangle, MessageCircle, Menu, X,
-  Check, ChevronDown, ArrowLeft, Mail
+  Check, ChevronDown, ArrowLeft, Mail, ShieldCheck, Clock
 } from "lucide-react";
 import {
   COMPANY_NAME, SCHOOL_ICON, SCHOOL_LOGO_WIDE, SCHOOL_VERSION, SCHOOL_WEB_URL, SCHOOL_WIN_SIZE,
-  SCHOOL_WIN_URL, SCHOOL_WIN_READY, SUPPORT_EMAIL, WHATSAPP_URL
+  SCHOOL_WIN_URL, SCHOOL_WIN_READY, SUPPORT_EMAIL, WHATSAPP_URL,
+  SCHOOL_DEMO_DAYS, SCHOOL_PRICE_PKR, SCHOOL_PAY_NUMBER
 } from "../links";
 
 // Windows download button, or a "coming soon" badge until the new installer is published.
@@ -67,9 +68,17 @@ const versions = [
   },
 ];
 
+const PRICE = `Rs. ${SCHOOL_PRICE_PKR.toLocaleString("en-PK")}`;
+
 const faqs = [
+  ["How much does it cost?",
+    `The first ${SCHOOL_DEMO_DAYS} days are a free demo. After that the subscription is ${PRICE} per month. Pay by EasyPaisa or JazzCash to ${SCHOOL_PAY_NUMBER}, then send the payment screenshot and your principal Gmail on WhatsApp. We activate your school for 1 month.`],
+  ["What happens when the demo or the month ends?",
+    "The app locks until the next month is paid. Your school data is not deleted — it stays saved on your device and opens again as soon as the subscription is renewed."],
+  ["How do the principal and teachers sign in?",
+    "With Google (Gmail). The first verified Gmail that signs in on a device becomes the Principal. The Principal then adds teachers' Gmail addresses in Settings → Teachers, and those teachers sign in on the same device with their own Google account."],
   ["Where is my school's data stored?",
-    "On your own device. The Windows app saves data on your computer, and the web app saves it in the browser of the phone or computer you use. Your school data is not sent to our servers."],
+    "On your own device. The Windows app saves data on your computer, and the web app saves it in the browser of the phone or computer you use. Student and school records are not sent to our servers — only the principal's email, the school name and the teachers' emails are kept with your subscription."],
   ["Can I use it on more than one computer or phone?",
     "Yes, but the data does not sync between devices. Each computer or phone keeps its own records. For the main school records, use one Windows computer and take backups regularly."],
   ["What if I clear my browser data?",
@@ -77,7 +86,7 @@ const faqs = [
   ["Windows says “Windows protected your PC”. Is it safe?",
     "This message appears for new apps that are not yet well known to Windows. Click “More info”, then “Run anyway” to continue the installation."],
   ["Do I need internet?",
-    "Only to download or first open the app. After that, daily work runs offline."],
+    "Yes for signing in with Google and for checking the subscription. Daily work like attendance, fees and reports runs on your device, and the app re-checks the subscription whenever it is online."],
   ["How do I get help with setup?",
     "Message us on WhatsApp and we will help you set up your school, classes and fee structure."],
 ];
@@ -107,6 +116,7 @@ export default function SchoolManagement() {
         <nav className={open ? "nav open" : "nav"}>
           <a href="#features" onClick={close}>Features</a>
           <a href="#versions" onClick={close}>Windows & Web</a>
+          <a href="#pricing" onClick={close}>Pricing</a>
           <a href="#install" onClick={close}>Install</a>
           <a href="#faq" onClick={close}>FAQ</a>
           <Link to="/" onClick={close}>All Apps</Link>
@@ -182,7 +192,38 @@ export default function SchoolManagement() {
           </div>
         </section>
 
-        <section id="install" className="section light">
+        <section id="pricing" className="section light">
+          <p className="eyebrow center">SIMPLE PRICING</p>
+          <h2>{SCHOOL_DEMO_DAYS}-Day Free Demo, then <span>{PRICE} / month</span></h2>
+          <p className="section-sub">For the Windows app and the web app. One subscription per school (principal's Gmail).</p>
+          <div className="plans-grid">
+            <article className="plan-card">
+              <div className="version-head"><Clock size={26} /><h3>Free Demo</h3></div>
+              <p className="plan-price"><strong>Rs. 0</strong> <span>/ {SCHOOL_DEMO_DAYS} days</span></p>
+              <ul className="plan-features">
+                <li><Check size={17} /> All features unlocked</li>
+                <li><Check size={17} /> Starts when the principal first signs in with Google</li>
+                <li><Check size={17} /> Add your teachers' Gmail addresses</li>
+                <li><Check size={17} /> No payment needed to try</li>
+              </ul>
+              <a className="btn dark" href={SCHOOL_WEB_URL}><ExternalLink size={18} /> Start the free demo</a>
+            </article>
+            <article className="plan-card premium">
+              <span className="plan-badge"><ShieldCheck size={14} /> Monthly subscription</span>
+              <div className="version-head"><Receipt size={26} /><h3>School Subscription</h3></div>
+              <p className="plan-price"><strong>{PRICE}</strong> <span>/ month</span></p>
+              <ul className="plan-features">
+                <li><Check size={17} /> Pay by EasyPaisa or JazzCash: <b>{SCHOOL_PAY_NUMBER}</b></li>
+                <li><Check size={17} /> Send the screenshot and principal Gmail on WhatsApp</li>
+                <li><Check size={17} /> We activate your school for 1 month</li>
+                <li><Check size={17} /> Renew each month — your data is never deleted</li>
+              </ul>
+              <a className="btn primary" href={WHATSAPP_URL} target="_blank" rel="noreferrer"><MessageCircle size={18} /> Subscribe on WhatsApp</a>
+            </article>
+          </div>
+        </section>
+
+        <section id="install" className="section">
           <p className="eyebrow center">GET STARTED</p>
           <h2>How to <span>Install</span></h2>
           <div className="install-columns">

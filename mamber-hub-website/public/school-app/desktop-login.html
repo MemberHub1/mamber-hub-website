@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Sign in — School Management System</title>
+  <link rel="icon" href="./icons/icon-192.png" />
+  <style>
+    :root { color-scheme: light; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 20px;
+      font-family: Inter, "Segoe UI", system-ui, sans-serif; background: #0f172a; color: #0f172a;
+    }
+    .card { width: 100%; max-width: 440px; background: #fff; border-radius: 28px; padding: 36px 28px; text-align: center; box-shadow: 0 30px 60px rgba(0,0,0,.35); }
+    .card img { width: 120px; height: auto; border-radius: 18px; }
+    h1 { font-size: 22px; margin: 18px 0 8px; }
+    p { color: #475569; line-height: 1.6; margin: 0 0 22px; font-size: 15px; }
+    button {
+      width: 100%; height: 56px; border-radius: 16px; border: 2px solid #e2e8f0; background: #fff;
+      font-size: 17px; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 12px; cursor: pointer;
+    }
+    button:hover { background: #f8fafc; border-color: #93c5fd; }
+    button:disabled { opacity: .6; cursor: default; }
+    .msg { margin-top: 18px; font-size: 14px; font-weight: 600; }
+    .err { color: #dc2626; }
+    .ok { color: #059669; }
+    .ur { font-family: "Noto Nastaliq Urdu", serif; direction: rtl; font-size: 15px; color: #64748b; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img src="./icons/icon-192.png" alt="School Management System" />
+    <h1>School Management System</h1>
+    <p id="intro">Sign in with Google to continue in the Windows app.</p>
+    <button id="btn" type="button">
+      <svg width="22" height="22" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>
+      <span>Continue with Google</span>
+    </button>
+    <div class="ur">ونڈوز ایپ میں جاری رکھنے کے لیے گوگل سے لاگ ان کریں</div>
+    <div id="msg" class="msg"></div>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+    import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+
+    const app = initializeApp({
+      apiKey: "AIzaSyCJahqp6bUzU0JTW8Hk78oJABs2StK8Vjk",
+      authDomain: "school-management-system-d3e44.firebaseapp.com",
+      projectId: "school-management-system-d3e44",
+      appId: "1:413750037301:web:8eb34713f74988a1f19a7c",
+    });
+    const auth = getAuth(app);
+
+    const params = new URLSearchParams(location.search);
+    const port = params.get("port") || "";
+    const state = params.get("state") || "";
+    const valid = /^\d{2,5}$/.test(port) && Number(port) > 1023 && Number(port) < 65536 && /^[a-f0-9]{32}$/.test(state);
+
+    const btn = document.getElementById("btn");
+    const msg = document.getElementById("msg");
+
+    if (!valid) {
+      btn.disabled = true;
+      msg.className = "msg err";
+      msg.textContent = "Open this page from the School Management System Windows app (Continue with Google).";
+    }
+
+    btn.addEventListener("click", async () => {
+      if (!valid) return;
+      btn.disabled = true;
+      msg.className = "msg";
+      msg.textContent = "Opening Google…";
+      try {
+        const provider = new GoogleAuthProvider();
+        provider.setCustomParameters({ prompt: "select_account" });
+        const result = await signInWithPopup(auth, provider);
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        if (!credential || !credential.idToken) throw new Error("no-token");
+        msg.className = "msg ok";
+        msg.textContent = "Signed in. Returning to the app…";
+        // Hand the Google ID token to the Windows app listening on this computer only.
+        location.replace(`http://127.0.0.1:${port}/callback?state=${state}&id_token=${encodeURIComponent(credential.idToken)}`);
+      } catch (e) {
+        btn.disabled = false;
+        msg.className = "msg err";
+        msg.textContent = /popup-closed|cancelled/.test(String(e && (e.code || e.message)))
+          ? "Sign-in was closed. Click the button to try again."
+          : "Could not sign in. Please try again.";
+      }
+    });
+  </script>
+</body>
+</html>

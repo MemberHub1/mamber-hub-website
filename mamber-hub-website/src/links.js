@@ -3,16 +3,16 @@
 export const COMPANY_NAME = "Member Digital Solutions";
 
 // School Management System
-// The Windows installer is attached to a fixed GitHub release tag (school-v1.0.1)
+// The Windows installer is attached to a fixed GitHub release tag (school-v1.0.2)
 // that is NOT marked "latest", so the Mamber Hub "latest" APK link keeps working.
-export const SCHOOL_VERSION = "1.0.1";
+export const SCHOOL_VERSION = "1.0.2";
 export const SCHOOL_WIN_SIZE = "131 MB";
 export const SCHOOL_WIN_URL =
-  "https://github.com/MemberHub1/mamber-hub-website/releases/download/school-v1.0.1/School-Management-System-Setup-1.0.1.exe";
+  "https://github.com/MemberHub1/mamber-hub-website/releases/download/school-v1.0.2/School-Management-System-Setup-1.0.2.exe";
 export const SCHOOL_WEB_URL = "/school-app/";
 export const SCHOOL_ICON = "/assets/school-logo-192.jpg";
 export const SCHOOL_LOGO_WIDE = "/assets/school-logo.jpg";
-// Windows installer 1.0.1 (with the 7-day demo) is published on GitHub.
+// Windows installer 1.0.2 (teacher login, email sign-in, 7-day demo) is published on GitHub.
 export const SCHOOL_WIN_READY = true;
 // 7-day free demo, then a monthly subscription (School Management only).
 export const SCHOOL_DEMO_DAYS = 7;

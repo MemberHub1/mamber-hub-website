@@ -359,7 +359,7 @@ function MamberHubLanding() {
   </div>
 
   <div className="copyright">
-    © 2026 Mamber Hub by Member Digital Solutions. All rights reserved.
+    © 2026 Mamber Hub by Mamber Digital Solutions. All rights reserved.
   </div>
 </footer>
     </div>

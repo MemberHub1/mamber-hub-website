@@ -84,6 +84,7 @@
       <div class="toolbar">
         <input id="search" type="search" placeholder="Search school name, email, TID or mobile number" />
         <button id="reload" type="button">Refresh</button>
+        <button id="testWa" type="button">Send test WhatsApp</button>
       </div>
       <p id="appMsg" class="msg"></p>
       <div id="list" class="list"></div>
@@ -256,6 +257,29 @@
     });
     $("search").addEventListener("input", render);
     $("reload").addEventListener("click", load);
+    $("testWa").addEventListener("click", async () => {
+      const b = $("testWa");
+      b.disabled = true;
+      $("appMsg").className = "msg"; $("appMsg").style.color = ""; $("appMsg").textContent = "Sending a test message to your WhatsApp…";
+      try {
+        const token = await auth.currentUser.getIdToken();
+        const res = await fetch("/api/school-payment-notify", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+          body: JSON.stringify({ test: true }),
+        });
+        const out = await res.json().catch(() => ({}));
+        if (out.ok) { $("appMsg").style.color = "var(--green)"; $("appMsg").textContent = "Test message sent. Check your WhatsApp."; }
+        else {
+          $("appMsg").className = "msg err";
+          $("appMsg").textContent = out.error === "not_configured"
+            ? "WhatsApp alerts are not set up yet (CallMeBot key missing in Cloudflare)."
+            : "Could not send the test message. Check the CallMeBot key and number.";
+        }
+      } catch (e) {
+        $("appMsg").className = "msg err"; $("appMsg").textContent = "Could not send the test message.";
+      } finally { b.disabled = false; }
+    });
     $("signin").addEventListener("click", async () => {
       $("authMsg").textContent = "";
       try {

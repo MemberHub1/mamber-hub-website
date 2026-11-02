@@ -8,7 +8,8 @@
 // 10 minutes.
 //
 // Setup (Cloudflare Pages → Settings → Variables and Secrets, Production):
-//   CALLMEBOT_APIKEY  the key CallMeBot sent to the owner's WhatsApp (secret)
+//   CALLMEBOT_APIKEY  the key CallMeBot sent to the owner's WhatsApp (secret;
+//                     the name "Callmebot" also works)
 //   NOTIFY_PHONE      optional, default +923187630194
 //   ADMIN_URL         optional, default https://mamber-hub-website.pages.dev/school-admin/
 
@@ -28,12 +29,37 @@ export function onRequestOptions() {
   return new Response(null, { status: 204, headers: CORS });
 }
 
+async function sendWhatsApp(env, text) {
+  const apiKey = env.CALLMEBOT_APIKEY || env.Callmebot || env.CALLMEBOT;
+  if (!apiKey) return { ok: false, error: "not_configured" };
+  const phone = env.NOTIFY_PHONE || "+923187630194";
+  const res = await fetch(`https://api.callmebot.com/whatsapp.php?phone=${encodeURIComponent(phone)}&text=${encodeURIComponent(text)}&apikey=${encodeURIComponent(apiKey)}`);
+  const body = await res.text();
+  // CallMeBot answers 200 with an HTML page; a wrong key or number says so in the text.
+  if (!res.ok || /apikey is invalid|invalid apikey|wrong apikey|not activated|phone number is not valid/i.test(body)) return { ok: false, error: "send_failed" };
+  return { ok: true };
+}
+
 export async function onRequestPost({ request, env }) {
   const auth = request.headers.get("Authorization") || "";
   const token = auth.startsWith("Bearer ") ? auth.slice(7) : "";
-  let uid = "";
-  try { uid = String((await request.json()).uid || ""); } catch { /* bad body */ }
-  if (!token || !/^[A-Za-z0-9]{10,64}$/.test(uid)) return json({ ok: false, error: "bad_request" }, 400);
+  let body = {};
+  try { body = await request.json(); } catch { /* bad body */ }
+  if (!token) return json({ ok: false, error: "bad_request" }, 400);
+
+  // Admin page "Send test WhatsApp": only the admin can list licences in Firestore.
+  if (body.test === true) {
+    const check = await fetch(
+      `https://firestore.googleapis.com/v1/projects/${PROJECT}/databases/(default)/documents/licenses?pageSize=1`,
+      { headers: { Authorization: `Bearer ${token}` } }
+    );
+    if (!check.ok) return json({ ok: false, error: "not_allowed" }, 403);
+    const r = await sendWhatsApp(env, "✅ Test: School Management payment alerts are working. You will get a WhatsApp message like this whenever a school submits a payment.");
+    return json(r, r.ok ? 200 : 502);
+  }
+
+  const uid = String(body.uid || "");
+  if (!/^[A-Za-z0-9]{10,64}$/.test(uid)) return json({ ok: false, error: "bad_request" }, 400);
 
   // Read the school's licence as that principal (Firestore rules allow only them).
   const res = await fetch(
@@ -53,8 +79,6 @@ export async function onRequestPost({ request, env }) {
   const onceKey = new Request(`https://notify.invalid/${uid}/${submittedAt}`);
   if (await cache.match(onceKey)) return json({ ok: true, duplicate: true });
 
-  if (!env.CALLMEBOT_APIKEY) return json({ ok: false, error: "not_configured" }, 503);
-
   const school = str(fields.schoolName) || "School";
   const email = str(fields.principalEmail);
   const adminUrl = env.ADMIN_URL || "https://mamber-hub-website.pages.dev/school-admin/";
@@ -69,10 +93,8 @@ export async function onRequestPost({ request, env }) {
     `Check it and activate: ${adminUrl}`,
   ].join("\n");
 
-  const phone = env.NOTIFY_PHONE || "+923187630194";
-  const sendUrl = `https://api.callmebot.com/whatsapp.php?phone=${encodeURIComponent(phone)}&text=${encodeURIComponent(text)}&apikey=${encodeURIComponent(env.CALLMEBOT_APIKEY)}`;
-  const sent = await fetch(sendUrl);
-  if (!sent.ok) return json({ ok: false, error: "send_failed" }, 502);
+  const sent = await sendWhatsApp(env, text);
+  if (!sent.ok) return json(sent, sent.error === "not_configured" ? 503 : 502);
 
   await cache.put(onceKey, new Response("1", { headers: { "Cache-Control": "max-age=86400" } }));
   return json({ ok: true });

@@ -2,12 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import {
   ArrowRight, Download, ExternalLink, MessageCircle, Menu, X, Check,
-  Smartphone, Monitor, Globe, Languages, ShieldCheck, LifeBuoy, RefreshCw, Mail
+  Smartphone, Monitor, Globe, Languages, ShieldCheck, LifeBuoy, RefreshCw
 } from "lucide-react";
 import {
-  APK_URL, APP_VERSION, COMPANY_NAME, COMPANY_LOGO_WHITE, SCHOOL_ICON, SCHOOL_VERSION,
-  SCHOOL_WEB_URL, SCHOOL_WIN_URL, SCHOOL_WIN_READY, SUPPORT_EMAIL, SUPPORT_PHONE, WHATSAPP_URL
+  APP_VERSION, COMPANY_NAME, COMPANY_LOGO_WHITE, SCHOOL_ICON, SCHOOL_VERSION,
+  SCHOOL_WEB_URL, SCHOOL_WIN_URL, SCHOOL_WIN_READY, SUPPORT_PHONE, WHATSAPP_URL,
+  DOWNLOAD_URL, DOWNLOAD_LABEL
 } from "../links";
+import SiteFooter from "./SiteFooter";
 
 const apps = [
   {
@@ -15,12 +17,12 @@ const apps = [
     name: "Mamber Hub",
     logo: "/assets/mamber-hub-logo.png",
     tagline: "Membership app for communities",
-    text: "Members watch member videos with a Basic or Premium plan, pay with EasyPaisa or JazzCash, and get their own referral code. Admins manage members and payments in one place.",
+    text: "Members watch member videos with a Basic or Premium plan, pay with EasyPaisa or JazzCash and follow the verification, get notifications and renewal reminders, invite friends and chat with the admin for help.",
     platforms: [{ icon: Smartphone, label: "Android" }],
     version: `Version ${APP_VERSION}`,
-    highlights: ["Member video library", "Basic & Premium plans", "Payment proof & verification", "Admin dashboard"],
+    highlights: ["Member video library", "Payment verification & notifications", "Refer & Earn invite links", "Admin dashboard & collection analytics"],
     page: "/mamber-hub",
-    actions: [{ label: "Download APK", href: APK_URL, icon: Download, primary: true }],
+    actions: [{ label: DOWNLOAD_LABEL, href: DOWNLOAD_URL, icon: Download, primary: true }],
   },
   {
     id: "school",
@@ -168,35 +170,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="footer">
-        <div>
-          <div className="brand footer-brand">
-            <img className="company-logo" src={COMPANY_LOGO_WHITE} alt={COMPANY_NAME} width="175" height="60" />
-          </div>
-          <p>Simple apps for communities, schools and small businesses.</p>
-        </div>
-        <div>
-          <h4>Our Apps</h4>
-          <Link to="/mamber-hub">Mamber Hub</Link>
-          <Link to="/school-management">School Management</Link>
-          <a href={SCHOOL_WEB_URL}>School Web App</a>
-        </div>
-        <div>
-          <h4>Support</h4>
-          <Link to="/contact">Contact Us</Link>
-          <Link to="/privacy-policy">Mamber Hub Privacy</Link>
-          <Link to="/school-management/privacy-policy">School App Privacy</Link>
-          <Link to="/delete-account">Delete Mamber Hub Account</Link>
-        </div>
-        <div>
-          <h4>Contact</h4>
-          <div className="socials">
-            <a href={WHATSAPP_URL} target="_blank" rel="noreferrer"><MessageCircle size={18} /> <span>WhatsApp</span></a>
-            <a href={`mailto:${SUPPORT_EMAIL}`}><Mail size={18} /> <span>Email</span></a>
-          </div>
-        </div>
-        <div className="copyright">© 2026 {COMPANY_NAME}. All rights reserved.</div>
-      </footer>
+      <SiteFooter variant="company" />
     </div>
   );
 }

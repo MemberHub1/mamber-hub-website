@@ -27,9 +27,16 @@ export const SCHOOL_PAY_NUMBER = "0316-7630171"; // EasyPaisa and JazzCash
 export const APK_URL =
   "https://github.com/MemberHub1/mamber-hub-website/releases/latest/download/MamberHub.apk";
 
-export const APP_VERSION = "1.0.4";
+export const APP_VERSION = "1.0.6";
 export const APP_SIZE = "40 MB";
 export const MIN_ANDROID = "Android 8.0+";
+
+// Google Play: paste the Play Store link here once the app is published.
+// While it is empty the site offers the APK download; when it is filled in,
+// every Download button opens Google Play instead.
+export const PLAY_STORE_URL = "";
+export const DOWNLOAD_URL = PLAY_STORE_URL || APK_URL;
+export const DOWNLOAD_LABEL = PLAY_STORE_URL ? "Get it on Google Play" : "Download APK";
 
 // Membership plans (same as the app's Subscription screen).
 export const PLANS = [
@@ -66,9 +73,12 @@ export const SUPPORT_EMAIL = "supportmemberhub@gmail.com";
 export const SUPPORT_PHONE = "+923187630194";
 export const WHATSAPP_URL = "https://wa.me/923187630194";
 
+export const WEBSITE_URL = "https://mamber-hub-website.pages.dev/";
+
+// Mamber Digital Solutions accounts (same links as the app's Support page).
 export const SOCIAL_LINKS = [
-  { key: "instagram", label: "Instagram", href: "https://www.instagram.com/mamber_hub/" },
-  { key: "facebook", label: "Facebook", href: "https://www.facebook.com/profile.php?id=61595549139451" },
   { key: "whatsapp", label: "WhatsApp Channel", href: "https://whatsapp.com/channel/0029Vb8gwbm4yltS5a7z6j2k" },
+  { key: "facebook", label: "Facebook", href: "https://www.facebook.com/share/18pKxuso9s/" },
+  { key: "instagram", label: "Instagram", href: "https://www.instagram.com/mamberdigitalsolutions/" },
   { key: "tiktok", label: "TikTok", href: "https://www.tiktok.com/@mamberhubofficial" },
 ];

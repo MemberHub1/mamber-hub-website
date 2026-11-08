@@ -449,3 +449,17 @@ h2 span, .hero h1 span { color: var(--mh-p3); }
   .mh-phones .front { zoom: .78; }
   .mh-phones .back { zoom: .7; top: 30px; }
 }
+
+/* ---------- Qissabaaz page ---------- */
+.brand-logo[src*="qissabaaz"] { padding: 0; border-radius: 22%; background: transparent; }
+.qz-logo-hero { width: 360px; flex: none; }
+.qz-logo-hero img { width: 100%; height: auto; display: block; border-radius: 22%; box-shadow: 0 24px 60px rgba(225, 29, 72, .35); }
+.qz-meta { margin-top: 14px; font-size: 13px; opacity: .75; }
+.qz-plans { max-width: 1080px; grid-template-columns: repeat(3, 1fr); }
+.qz-policy-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 8px; }
+.qz-policy h2 { font-size: 20px; margin: 22px 0 8px; }
+.qz-policy h3 { font-size: 17px; margin: 18px 0 6px; }
+.qz-policy p, .qz-policy li { line-height: 1.7; }
+.qz-policy .muted { opacity: .7; font-size: 13px; }
+@media (max-width: 900px) { .qz-plans { grid-template-columns: 1fr; } }
+@media (max-width: 768px) { .qz-logo-hero { display: block; width: 100%; max-width: 280px; margin: 30px auto 0; } }

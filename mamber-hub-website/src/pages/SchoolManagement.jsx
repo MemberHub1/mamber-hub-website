@@ -11,6 +11,7 @@ import {
   SCHOOL_WIN_URL, SCHOOL_WIN_READY, SUPPORT_EMAIL, WHATSAPP_URL,
   SCHOOL_DEMO_DAYS, SCHOOL_PRICE_PKR, SCHOOL_PAY_NUMBER
 } from "../links";
+import SiteFooter from "./SiteFooter";
 
 // Windows download button, or a "coming soon" badge until the new installer is published.
 function WinButton({ className = "btn primary", label = "Download for Windows", size = 19 }) {
@@ -282,39 +283,7 @@ export default function SchoolManagement() {
         </section>
       </main>
 
-      <footer className="footer">
-        <div>
-          <div className="brand footer-brand">
-            <img className="brand-logo" src={SCHOOL_ICON} alt="School Management System logo" />
-            <span>
-              <strong>School <em>Management</em></strong>
-              <small>by {COMPANY_NAME}</small>
-            </span>
-          </div>
-          <p>English & Urdu school management software for Windows and the web.</p>
-        </div>
-        <div>
-          <h4>App</h4>
-          <a href="#features">Features</a>
-          <a href="#versions">Windows & Web</a>
-          <a href="#install">Install</a>
-          <a href="#faq">FAQ</a>
-        </div>
-        <div>
-          <h4>Support</h4>
-          <Link to="/school-management/privacy-policy">Privacy Policy</Link>
-          <Link to="/contact">Contact Us</Link>
-          <Link to="/"><ArrowLeft size={14} /> All Apps</Link>
-        </div>
-        <div>
-          <h4>Contact</h4>
-          <div className="socials">
-            <a href={WHATSAPP_URL} target="_blank" rel="noreferrer"><MessageCircle size={18} /> <span>WhatsApp</span></a>
-            <a href={`mailto:${SUPPORT_EMAIL}`}><Mail size={18} /> <span>Email</span></a>
-          </div>
-        </div>
-        <div className="copyright">© 2026 {COMPANY_NAME}. All rights reserved.</div>
-      </footer>
+      <SiteFooter variant="school" />
     </div>
   );
 }

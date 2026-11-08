@@ -82,3 +82,23 @@ export const SOCIAL_LINKS = [
   { key: "instagram", label: "Instagram", href: "https://www.instagram.com/mamberdigitalsolutions/" },
   { key: "tiktok", label: "TikTok", href: "https://www.tiktok.com/@mamberhubofficial" },
 ];
+
+// Qissabaaz (short-drama app, Android). Same plans, policies and delete page as the app.
+// QZ_PLAY_URL: paste the Play Store link once the app is live (until then the page shows
+// "Coming soon on Google Play"). QZ_APK_URL: only a Play-signed APK (Play Console → App bundle
+// explorer → Download signed universal APK), attached to a GitHub release as Qissabaaz.apk.
+export const QZ_NAME = "Qissabaaz";
+export const QZ_LOGO = "/assets/qissabaaz-logo.png";
+export const QZ_BANNER = "/assets/qissabaaz-banner.jpg";
+export const QZ_VERSION = "0.8.0";
+export const QZ_PLAY_URL = "";
+export const QZ_APK_URL = "";
+export const QZ_DELETE_URL = "https://drama-app-api.supportmemberhub.workers.dev/account/delete";
+export const QZ_PLANS = [
+  { id: "free", name: "Free", price: 0, tagline: "Start watching right away, no account needed.",
+    features: ["First episodes of every drama", "Like, comment and share", "Includes ads"] },
+  { id: "basic", name: "Basic", price: 599, tagline: "Every episode of every drama.",
+    features: ["All episodes of all dramas", "My List and watch history", "Includes ads"] },
+  { id: "premium", name: "Premium", price: 999, badge: "3 days free", tagline: "Everything, with no ads.",
+    features: ["All episodes of all dramas", "No ads anywhere", "3-day free trial for new subscribers"] },
+];

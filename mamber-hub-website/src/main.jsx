@@ -13,6 +13,8 @@ import Home from "./pages/Home";
 import MamberHub from "./pages/MamberHub";
 import SchoolManagement from "./pages/SchoolManagement";
 import SchoolPrivacy from "./pages/SchoolPrivacy";
+import Qissabaaz from "./pages/Qissabaaz";
+import QissabaazPolicy from "./pages/QissabaazPolicy";
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
@@ -24,6 +26,16 @@ createRoot(document.getElementById("root")).render(
       <Route path="/school-management" element={<SchoolManagement />} />
 
       <Route path="/school-management/privacy-policy" element={<SchoolPrivacy />} />
+
+      <Route path="/qissabaaz" element={<Qissabaaz />} />
+
+      <Route path="/qissabaaz/privacy-policy" element={<QissabaazPolicy kind="privacy" />} />
+
+      <Route path="/qissabaaz/terms" element={<QissabaazPolicy kind="terms" />} />
+
+      <Route path="/qissabaaz/child-safety" element={<QissabaazPolicy kind="child-safety" />} />
+
+      <Route path="/qissabaaz/delete-account" element={<QissabaazPolicy kind="delete" />} />
 
       <Route path="/contact" element={<ContactUs />} />
 

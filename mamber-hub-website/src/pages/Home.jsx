@@ -7,8 +7,9 @@ import {
 import {
   APP_VERSION, COMPANY_NAME, COMPANY_LOGO_WHITE, SCHOOL_ICON, SCHOOL_VERSION,
   SCHOOL_WEB_URL, SCHOOL_WIN_URL, SCHOOL_WIN_READY, SUPPORT_PHONE, WHATSAPP_URL,
-  DOWNLOAD_URL, DOWNLOAD_LABEL
+  DOWNLOAD_URL, DOWNLOAD_LABEL, QZ_LOGO, QZ_VERSION
 } from "../links";
+import { QzGetButton } from "./Qissabaaz";
 import SiteFooter from "./SiteFooter";
 
 const apps = [
@@ -41,6 +42,19 @@ const apps = [
         ]
       : [{ label: "Open Web App", href: SCHOOL_WEB_URL, icon: ExternalLink, primary: true }],
   },
+  {
+    id: "qissabaaz",
+    name: "Qissabaaz",
+    logo: QZ_LOGO,
+    tagline: "Short dramas made for your phone",
+    text: "Turkish, Pakistani, Indian and Chinese dramas in short episodes. Swipe up for the next one; the first episodes of every drama are free.",
+    platforms: [{ icon: Smartphone, label: "Android" }],
+    version: `Version ${QZ_VERSION}`,
+    highlights: ["Short vertical episodes", "Free episodes, no account needed", "Basic & ad-free Premium plans", "Like, comment & share"],
+    page: "/qissabaaz",
+    getButton: true,
+    actions: [],
+  },
 ];
 
 const reasons = [
@@ -55,7 +69,7 @@ export default function Home() {
   const close = () => setOpen(false);
 
   React.useEffect(() => {
-    document.title = `${COMPANY_NAME} — Mamber Hub & School Management`;
+    document.title = `${COMPANY_NAME} — Mamber Hub, School Management & Qissabaaz`;
     if (!window.location.hash) window.scrollTo(0, 0);
   }, []);
 
@@ -72,6 +86,7 @@ export default function Home() {
           <a href="#apps" onClick={close}>Our Apps</a>
           <Link to="/mamber-hub" onClick={close}>Mamber Hub</Link>
           <Link to="/school-management" onClick={close}>School Management</Link>
+          <Link to="/qissabaaz" onClick={close}>Qissabaaz</Link>
           <a href="#contact" onClick={close}>Contact</a>
           <a className="nav-cta" href="#apps" onClick={close}>Get the Apps</a>
         </nav>
@@ -131,6 +146,7 @@ export default function Home() {
                   {a.highlights.map((h) => <li key={h}><Check size={16} /> {h}</li>)}
                 </ul>
                 <div className="app-actions">
+                  {a.getButton && <QzGetButton size={17} />}
                   {a.actions.map(({ label, href, icon: Icon, primary }) => (
                     <a key={label} className={primary ? "btn primary" : "btn dark"} href={href}>
                       <Icon size={17} /> {label}

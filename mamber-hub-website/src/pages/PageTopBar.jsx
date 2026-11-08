@@ -1,9 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { SCHOOL_ICON } from "../links";
+import { SCHOOL_ICON, QZ_LOGO } from "../links";
 
-// Top bar for inner pages. variant: "mamber" (default) or "school".
+// Top bar for inner pages. variant: "mamber" (default), "school" or "qissabaaz".
 function PageTopBar({ variant = "mamber" }) {
+  if (variant === "qissabaaz") {
+    return (
+      <div className="page-topbar">
+        <Link to="/qissabaaz" className="brand">
+          <img className="brand-logo" src={QZ_LOGO} alt="Qissabaaz logo" />
+          <span>
+            <strong>Qissa<em>baaz</em></strong>
+          </span>
+        </Link>
+        <Link to="/qissabaaz" className="back-home">← Back to Qissabaaz</Link>
+      </div>
+    );
+  }
+
   if (variant === "school") {
     return (
       <div className="page-topbar">

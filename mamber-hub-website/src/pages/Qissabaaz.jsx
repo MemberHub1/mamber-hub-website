@@ -86,7 +86,7 @@ export default function Qissabaaz() {
               <QzGetButton />
               <a className="btn outline" href="#pricing">See Plans <ArrowRight size={18} /></a>
             </div>
-            <p className="qz-meta">Android · {MIN_ANDROID} · Version {QZ_VERSION}</p>
+            <p className="qz-meta">{MIN_ANDROID} · Version {QZ_VERSION}</p>
           </div>
           <div className="qz-logo-hero">
             <img src={QZ_LOGO} alt="Qissabaaz app" width="360" height="360" />

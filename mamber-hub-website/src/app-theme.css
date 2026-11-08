@@ -455,6 +455,7 @@ h2 span, .hero h1 span { color: var(--mh-p3); }
 .qz-logo-hero { width: 360px; flex: none; }
 .qz-logo-hero img { width: 100%; height: auto; display: block; border-radius: 22%; box-shadow: 0 24px 60px rgba(225, 29, 72, .35); }
 .qz-meta { margin-top: 14px; font-size: 13px; opacity: .75; }
+.qz-hero .urdu-line { color: #ffd7e4; }
 .qz-plans { max-width: 1080px; grid-template-columns: repeat(3, 1fr); }
 .qz-policy-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 8px; }
 .qz-policy h2 { font-size: 20px; margin: 22px 0 8px; }

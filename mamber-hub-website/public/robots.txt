@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mamber-hub-website.pages.dev/sitemap.xml

@@ -37,9 +37,10 @@ function TermsConditions() {
           <h2>3. Membership Plans & Payments</h2>
           <ul>
             <li>Creating an account and using your dashboard are free. Member videos require an active Basic or Premium plan.</li>
-            <li>Each plan lasts 30 days. Plans do not renew automatically; you can renew from the app when your plan ends.</li>
-            <li>Payments are made outside the app (for example through EasyPaisa or JazzCash). You upload a payment proof in the app, and your plan becomes active once an admin verifies it.</li>
-            <li>Payment proofs must be genuine. Accounts that submit false proofs may be suspended.</li>
+            <li>Basic and Premium are monthly subscriptions bought in the app through Google Play. Google Play takes the payment and renews the plan automatically every month until you cancel.</li>
+            <li>You can cancel at any time in Google Play (Play Store → Payments &amp; subscriptions). After cancelling, your plan stays active until the end of the month you have paid for. Refunds follow Google Play's refund policy.</li>
+            <li>Moving from Basic to Premium: Google Play takes the unused days of your Basic plan off the Premium price.</li>
+            <li>Plans paid before November 2026 (EasyPaisa or JazzCash) stay active until their end date.</li>
             <li>Plan prices are shown in the app and on this website and may change in the future. A price change never affects a plan you have already paid for.</li>
             <li>For any payment issue, contact us using the details below.</li>
           </ul>

@@ -24,7 +24,7 @@ const sections = [
         <ul>
           <li>Account details: name, email address, WhatsApp/phone number and password (passwords are stored in encrypted form by our login provider; we never see them). If you sign in with Google, we receive your name, email address and profile picture from your Google account.</li>
           <li>Profile and membership details: profile photo (if you add one), email verification status, join date, your personal referral code, who referred you, and your membership plan (Basic or Premium) with its start and expiry dates.</li>
-          <li>Payment records: plan, amount, date, status (pending, paid or rejected) and the payment reference or screenshot you upload as proof. Payments are made outside the app (for example through EasyPaisa or JazzCash). We do not collect or store card or bank account numbers.</li>
+          <li>Subscription and purchase records: Basic and Premium are monthly subscriptions bought through Google Play. Google Play handles the payment; we receive the purchase details from Google (plan, order number, purchase token, start, renewal and expiry dates, and whether the subscription is active, cancelled or refunded). We never receive or store your card, bank or wallet details. Records of plans paid before November 2026 (plan, amount, date, status and the payment reference or screenshot you uploaded then) are also kept.</li>
           <li>Messages and problem reports you send to our support team.</li>
         </ul>
         <p><strong>Information collected automatically:</strong></p>
@@ -42,7 +42,7 @@ const sections = [
     body: (
       <ul>
         <li>To create and manage your account and membership, and to verify your email address.</li>
-        <li>To let admins verify payment proofs, activate your plan and track membership payments.</li>
+        <li>To check your Google Play purchase with Google, activate and renew your plan, and track membership payments.</li>
         <li>To show videos and content shared with members.</li>
         <li>To create your referral code and record who invited you.</li>
         <li>To show ads to members on the Basic plan or without a plan. Premium members do not see ads.</li>
@@ -59,7 +59,7 @@ const sections = [
         <p>We do not sell your personal information. We share it only:</p>
         <ul>
           <li>With Mamber Hub admins, who can see your name, contact details, profile, plan and payment status.</li>
-          <li>With service providers that run the app for us: Google Firebase (sign-in, database and notifications) and Cloudflare (website hosting, file and video storage, and subscription records). They process data only on our instructions.</li>
+          <li>With service providers that run the app for us: Google Firebase (sign-in, database and notifications), Google Play (subscription payments) and Cloudflare (website hosting, file and video storage, and subscription records). They process data only on our instructions.</li>
           <li>With Google AdMob, which shows ads in the app and receives the advertising data described above. Google uses this data as described in{" "}
             <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noreferrer">How Google uses information from apps that use its services</a>.</li>
           <li>When required by law or to protect the rights and safety of our users.</li>

@@ -58,6 +58,16 @@ function DeleteAccount() {
         </div>
 
         <div className="contact-card">
+          <h2>Your Google Play subscription</h2>
+          <p>
+            Deleting your account from the app also stops your Google Play
+            subscription from renewing. You can also cancel it yourself at any
+            time in the Play Store: <strong>Profile → Payments &amp; subscriptions
+            → Subscriptions → Mamber Hub → Cancel</strong>.
+          </p>
+        </div>
+
+        <div className="contact-card">
           <h2>What is deleted</h2>
           <ul>
             <li>Your account and sign-in details (name, email, phone number).</li>

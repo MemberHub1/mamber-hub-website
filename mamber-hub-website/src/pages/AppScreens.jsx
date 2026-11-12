@@ -99,7 +99,7 @@ export function MemberHomeScreen() {
           <Tile icon={PlayCircle} label="Watch Videos" tone="violet" />
           <Tile icon={Wallet} label="My Payments" tone="green" />
           <Tile icon={User} label="My Profile" tone="sky" />
-          <Tile icon={Share2} label="Refer & Earn" tone="green" />
+          <Tile icon={Share2} label="Invite Friends" tone="green" />
           <Tile icon={Megaphone} label="Announcements" tone="amber" />
           <Tile icon={HelpCircle} label="Help & Support" tone="pink" />
         </div>
@@ -183,14 +183,14 @@ export function VerifyPaymentScreen() {
       <PageHead title="Payment Status" sub="Monthly Subscription" />
       <div className="ax-body ax-center">
         <span className="ax-big-icon"><Hourglass size={22} /></span>
-        <b className="ax-title">Verifying your payment</b>
-        <small className="ax-muted">Admin will check and approve it soon. You will get a notification.</small>
+        <b className="ax-title">Plan active</b>
+        <small className="ax-muted">Google Play confirmed your payment. All member videos are open.</small>
         <div className="ax-receipt">
-          <p><span>Status</span><em className="pending">Pending</em></p>
-          <p><span>Plan</span><b>Basic · 30 days</b></p>
+          <p><span>Status</span><em className="paid">Active</em></p>
+          <p><span>Plan</span><b>Basic · monthly</b></p>
           <p><span>Amount</span><b>Rs. 300</b></p>
-          <p><span>Transaction ID</span><b>85384288</b></p>
-          <p><span>Sent</span><b>06 Nov 2026, 10:24 AM</b></p>
+          <p><span>Paid with</span><b>Google Play</b></p>
+          <p><span>Renews</span><b>06 Dec 2026</b></p>
         </div>
         <div className="ax-button">Go to Dashboard</div>
         <div className="ax-button ghost">Contact Support</div>
@@ -294,17 +294,17 @@ export function PlansScreen() {
       <div className="ax-body">
         <div className="ax-plan-card">
           <div><b>Basic</b><small>All member videos · with ads</small></div>
-          <p><b>Rs. 300</b><small>/ 30 days</small></p>
+          <p><b>Rs. 300</b><small>/ month</small></p>
         </div>
         <div className="ax-plan-card premium">
           <em><Crown size={9} /> Best experience</em>
           <div><b>Premium</b><small>Everything in Basic · no ads</small></div>
-          <p><b>Rs. 600</b><small>/ 30 days</small></p>
+          <p><b>Rs. 600</b><small>/ month</small></p>
         </div>
         <div className="ax-card">
-          <small className="ax-muted">Pay with</small>
-          <p className="ax-pay"><b>EasyPaisa</b><b>JazzCash</b></p>
-          <small className="ax-muted">Then upload your payment screenshot.</small>
+          <small className="ax-muted">Pay securely with</small>
+          <p className="ax-pay"><b>Google Play</b></p>
+          <small className="ax-muted">Renews monthly · cancel any time in Play Store.</small>
         </div>
         <div className="ax-button"><Gift size={11} /> Continue</div>
       </div>
@@ -314,10 +314,10 @@ export function PlansScreen() {
 
 export const SCREENS = [
   { id: "home", label: "Member Home", Screen: MemberHomeScreen },
-  { id: "plans", label: "Plans & Payment", Screen: PlansScreen },
-  { id: "verify", label: "Verify Payment", Screen: VerifyPaymentScreen },
+  { id: "plans", label: "Plans", Screen: PlansScreen },
+  { id: "verify", label: "Plan Status", Screen: VerifyPaymentScreen },
   { id: "notes", label: "Notifications", Screen: NotificationsScreen },
-  { id: "refer", label: "Refer & Earn", Screen: ReferScreen },
+  { id: "refer", label: "Invite Friends", Screen: ReferScreen },
   { id: "chat", label: "Help Chat", Screen: ReportChatScreen },
   { id: "admin", label: "Admin Dashboard", Screen: AdminDashboardScreen },
   { id: "collection", label: "Collection Analytics", Screen: CollectionScreen },

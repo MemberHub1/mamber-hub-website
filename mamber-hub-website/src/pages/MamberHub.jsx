@@ -17,38 +17,38 @@ import {
 const features = [
   { icon: LayoutDashboard, title: "Member Dashboard", text: "Your plan, its expiry date, payments and quick actions on one purple home screen." },
   { icon: PlayCircle, title: "Video Library", text: "Every member video, streamed securely inside the app once your plan is active." },
-  { icon: Crown, title: "Basic & Premium", text: "Rs. 300 with ads or Rs. 600 ad-free — each for 30 days, no automatic charges." },
-  { icon: Hourglass, title: "Payment Verification", text: "Pay with EasyPaisa or JazzCash, upload the screenshot and follow its status until it is approved." },
-  { icon: Bell, title: "Smart Notifications", text: "Approvals, new videos, announcements and a renewal reminder 5 days before your plan ends." },
-  { icon: Gift, title: "Refer & Earn", text: "Share your invite link on WhatsApp, Facebook, Instagram or TikTok — your code fills in for your friend." },
+  { icon: Crown, title: "Basic & Premium", text: "Rs. 300 with ads or Rs. 600 ad-free — monthly Google Play subscriptions, cancel any time." },
+  { icon: Hourglass, title: "Google Play Payments", text: "Subscribe in the app through Google Play. Your plan opens right after Google confirms the payment and renews every month." },
+  { icon: Bell, title: "Smart Notifications", text: "Plan updates, new videos and announcements from the admin." },
+  { icon: Gift, title: "Invite Friends", text: "Share your invite link on WhatsApp, Facebook, Instagram or TikTok — your code fills in for your friend." },
   { icon: MessagesSquare, title: "Help Chat", text: "Report a problem and chat with the admin inside the app until it is solved." },
   { icon: BarChart3, title: "Admin Tools", text: "Total collection, collection analytics, reports, member requests and video uploads." },
 ];
 
 const notifications = [
-  { icon: CheckCircle2, color: "#16a34a", bg: "#dcfce7", title: "Payment approved or rejected", who: "members", text: "Only the member whose payment was checked gets this message." },
+  { icon: CheckCircle2, color: "#16a34a", bg: "#dcfce7", title: "Plan active", who: "members", text: "Only the member whose Google Play payment was confirmed gets this message." },
   { icon: PlayCircle, color: "#7c3aed", bg: "#ede9fe", title: "New video uploaded", who: "members", text: "Every member gets a push the moment the admin publishes a video." },
   { icon: Megaphone, color: "#ea580c", bg: "#ffedd5", title: "Announcements", who: "members", text: "News from the admin opens in full from the notification or the Announcements card." },
-  { icon: Clock, color: "#d97706", bg: "#fef3c7", title: "Renewal reminder", who: "members", text: "From 5 days before the plan ends, a reminder with a Renew Now button appears on every login." },
-  { icon: Hourglass, color: "#be185d", bg: "#fce7f3", title: "Payment to verify & problem reports", who: "admins", text: "Admins are told about member requests only — new payments, new reports and chat messages." },
+  { icon: Clock, color: "#d97706", bg: "#fef3c7", title: "Plan renewed or ended", who: "members", text: "Google Play renews your plan every month; you are told if it ends or is cancelled." },
+  { icon: Hourglass, color: "#be185d", bg: "#fce7f3", title: "Problem reports", who: "admins", text: "Admins are told about member requests only — new reports and chat messages." },
 ];
 
 const steps = [
   ["01", "Install & register", "Download the app and sign up with your email or Google account. Have an invite link? The referral code is filled in for you."],
   ["02", "Verify your Gmail", "Confirm your email once. After that the app opens your member dashboard."],
-  ["03", "Choose a plan & pay", "Pick Basic or Premium, pay with EasyPaisa or JazzCash and upload the payment screenshot."],
-  ["04", "Get approved & watch", "The “Verifying your payment” page shows the status. Once approved you get a notification and every video opens."],
+  ["03", "Choose a plan", "Pick Basic or Premium and pay through Google Play — card, JazzCash or EasyPaisa as offered by Google Play in Pakistan."],
+  ["04", "Watch", "As soon as Google Play confirms the payment, every member video opens. The plan renews every month until you cancel."],
 ];
 
 const faqs = [
   ["Is the Mamber Hub app free to download?",
     "Yes. Downloading the app, creating an account and using your dashboard are free. You only pay when you choose a Basic or Premium plan to watch member videos."],
   ["What happens after I pay?",
-    "The app shows a “Verifying your payment” page. The admin checks your payment and you get a notification as soon as it is approved — then all videos open."],
-  ["Will I be reminded before my plan ends?",
-    "Yes. From 5 days before your plan ends, the app reminds you every time you log in, with a Renew Now button. Nothing is ever charged automatically."],
-  ["How does Refer & Earn work?",
-    "Open Refer & Earn in the app and share your invite link. When your friend installs Mamber Hub from that link, your referral code is filled in on the Register screen automatically."],
+    "Google Play confirms the payment, our server checks it with Google and all videos open within moments. You also get a notification."],
+  ["Does my plan renew automatically?",
+    "Plans are monthly Google Play subscriptions that renew automatically. You can cancel any time in Play Store → Payments & subscriptions; the plan then stays active until the end of the paid month."],
+  ["How does Invite Friends work?",
+    "Open Invite Friends in the app and share your invite link. When your friend installs Mamber Hub from that link, your referral code is filled in on the Register screen automatically."],
   ["How do I get help if something is not working?",
     "Go to Help & Support → Report a Problem. Your report opens a chat with the admin, and you get a notification whenever the admin replies."],
   ["I get “App not installed” when I install the APK. What should I do?",
@@ -196,7 +196,7 @@ export default function MamberHub() {
         <section id="pricing" className="pricing section">
           <p className="eyebrow center">SIMPLE & TRANSPARENT</p>
           <h2>Membership <span>Plans</span></h2>
-          <p className="section-sub">Two plans, each for 30 days. No hidden charges and no automatic renewal.</p>
+          <p className="section-sub">Two monthly plans through Google Play. No hidden charges — cancel any time.</p>
           <div className="plans-grid">
             {PLANS.map((plan) => {
               const premium = plan.id === "premium";
@@ -221,8 +221,8 @@ export default function MamberHub() {
             })}
           </div>
           <p className="plans-note">
-            Subscribe from the Videos section of the app. Pay with EasyPaisa or JazzCash and upload your
-            payment screenshot — you get a notification as soon as the admin approves it.
+            Subscribe from the Videos section of the app. Payment is made through Google Play, and your
+            plan opens as soon as Google confirms it.
           </p>
         </section>
 

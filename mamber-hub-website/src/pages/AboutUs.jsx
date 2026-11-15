@@ -7,7 +7,7 @@ function AboutUs() {
     <div className="contact-page">
       <PageTopBar />
       <div className="contact-container">
-        <img className="about-logo" src={COMPANY_LOGO_STACKED} alt={COMPANY_NAME} width="220" height="265" />
+        <img className="about-logo" src={COMPANY_LOGO_STACKED} alt={COMPANY_NAME} width="260" height="210" />
 
         <p className="eyebrow">ABOUT {COMPANY_NAME.toUpperCase()}</p>
 

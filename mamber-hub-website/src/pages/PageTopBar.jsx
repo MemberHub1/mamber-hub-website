@@ -65,7 +65,7 @@ function PageTopBar({ variant = "company" }) {
   return (
     <div className="page-topbar">
       <Link to="/" className="brand">
-        <img className="company-logo" src={COMPANY_LOGO_WHITE} alt={COMPANY_NAME} width="140" height="48" style={{ height: 48 }} />
+        <img className="company-logo" src={COMPANY_LOGO_WHITE} alt={COMPANY_NAME} width="79" height="64" style={{ height: 64 }} />
       </Link>
       <Link to="/" className="back-home">← Back to {COMPANY_NAME}</Link>
     </div>

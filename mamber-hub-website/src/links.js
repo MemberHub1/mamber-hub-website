@@ -1,10 +1,12 @@
 // Central place for all external links used on the website.
 
 export const COMPANY_NAME = "Mamber Digital Solutions";
-// Company logo (Mamber Digital Solutions logo kit, public/assets/brand/).
-export const COMPANY_LOGO = "/assets/brand/header-logo.png";            // light backgrounds
-export const COMPANY_LOGO_WHITE = "/assets/brand/header-logo-white.png"; // dark header / footer
-export const COMPANY_LOGO_STACKED = "/assets/brand/logo-stacked.png";
+// Company logo: the MDS / MEMBER DIGITAL SOLUTIONS logo, recoloured to the site palette (public/assets/brand/).
+export const COMPANY_LOGO = "/assets/brand/mds-logo-light.png";            // light backgrounds
+export const COMPANY_LOGO_WHITE = "/assets/brand/mds-logo-dark.png"; // dark header / footer
+export const COMPANY_LOGO_STACKED = "/assets/brand/mds-logo-light.png";
+// Square mark used as the icon for every social account (WhatsApp, Facebook, Instagram, TikTok).
+export const MDS_SOCIAL_MARK = "/assets/brand/mds-social-512.png";
 
 // School Management System
 // The Windows installer is attached to a fixed GitHub release tag (school-v1.0.3)

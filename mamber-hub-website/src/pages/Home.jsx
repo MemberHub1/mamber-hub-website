@@ -93,7 +93,7 @@ export default function Home() {
     <div className="site company">
       <header className="header">
         <a className="brand" href="#top" onClick={close}>
-          <img className="company-logo" src={COMPANY_LOGO_WHITE} alt={COMPANY_NAME} width="175" height="60" />
+          <img className="company-logo" src={COMPANY_LOGO_WHITE} alt={COMPANY_NAME} width="87" height="70" />
         </a>
         <button className="menu-btn" onClick={() => setOpen(!open)} aria-label="Toggle menu">
           {open ? <X size={24} /> : <Menu size={24} />}

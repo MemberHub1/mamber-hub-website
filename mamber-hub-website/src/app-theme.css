@@ -144,6 +144,7 @@ h2 span, .hero h1 span { color: var(--mh-p3); }
 .footer > div:not(:first-child) a:hover { color: #fff; }
 .footer .socials a { background: rgba(255,255,255,.07); border-radius: 999px; padding: 8px 14px; display: inline-flex !important; align-items: center; gap: 8px; margin: 0 0 10px !important; color: #fff !important; }
 .footer .socials a:hover { background: var(--mh-p3); }
+.mds-mark { border-radius: 22%; flex: none; }
 .copyright { color: #8f87b5; border-top-color: rgba(255,255,255,.08); }
 
 /* ---------- Inner pages (About, Contact, Privacy, Terms, Delete) ---------- */

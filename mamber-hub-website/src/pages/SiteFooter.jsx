@@ -1,13 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Instagram, Facebook, MessageCircle, Music2, Mail, Globe } from "lucide-react";
+import { Mail, Globe } from "lucide-react";
 import {
-  COMPANY_NAME, COMPANY_LOGO_WHITE, SOCIAL_LINKS, SUPPORT_EMAIL, WEBSITE_URL,
+  COMPANY_NAME, COMPANY_LOGO_WHITE, MDS_SOCIAL_MARK, SOCIAL_LINKS, SUPPORT_EMAIL, WEBSITE_URL,
   DOWNLOAD_URL, DOWNLOAD_LABEL, SCHOOL_ICON, QZ_LOGO
 } from "../links";
 
-export const SOCIAL_ICONS = { instagram: Instagram, facebook: Facebook, whatsapp: MessageCircle, tiktok: Music2 };
-export const SOCIAL_COLORS = { whatsapp: "#16a34a", facebook: "#2563eb", instagram: "#db2777", tiktok: "#111827" };
+// Every social account uses the Mamber Digital Solutions square mark, in the brand violet.
+export function MdsMark({ size = 17 }) {
+  return <img className="mds-mark" src={MDS_SOCIAL_MARK} alt="" width={size} height={size} />;
+}
+export const SOCIAL_ICONS = { instagram: MdsMark, facebook: MdsMark, whatsapp: MdsMark, tiktok: MdsMark };
+export const SOCIAL_COLORS = { whatsapp: "#5b21e6", facebook: "#5b21e6", instagram: "#5b21e6", tiktok: "#5b21e6" };
 
 // Every page of the brand ends with the same Mamber Digital Solutions social links ("Follow Us").
 // variant: "company" (home and other brand pages), "mamber", "school" or "qissabaaz".
@@ -112,7 +116,7 @@ export default function SiteFooter({ variant = "company" }) {
               </span>
             </>
           ) : (
-            <img className="company-logo" src={COMPANY_LOGO_WHITE} alt={COMPANY_NAME} width="175" height="60" />
+            <img className="company-logo" src={COMPANY_LOGO_WHITE} alt={COMPANY_NAME} width="119" height="96" />
           )}
         </div>
         <p>{v.text}</p>

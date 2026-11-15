@@ -15,6 +15,7 @@ import SchoolManagement from "./pages/SchoolManagement";
 import SchoolPrivacy from "./pages/SchoolPrivacy";
 import Qissabaaz from "./pages/Qissabaaz";
 import QissabaazPolicy from "./pages/QissabaazPolicy";
+import BurgerPoint from "./pages/BurgerPoint";
 import { PAGE_TITLES } from "./pageTitles";
 
 // Sets the page title when the visitor moves to another page inside the app.
@@ -48,6 +49,8 @@ createRoot(document.getElementById("root")).render(
       <Route path="/qissabaaz/child-safety" element={<QissabaazPolicy kind="child-safety" />} />
 
       <Route path="/qissabaaz/delete-account" element={<QissabaazPolicy kind="delete" />} />
+
+      <Route path="/burger-point" element={<BurgerPoint />} />
 
       <Route path="/contact" element={<ContactUs />} />
 

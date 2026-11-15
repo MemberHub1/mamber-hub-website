@@ -7,7 +7,8 @@ import {
 import {
   APP_VERSION, COMPANY_NAME, COMPANY_LOGO_WHITE, SCHOOL_ICON, SCHOOL_VERSION,
   SCHOOL_WEB_URL, SCHOOL_WIN_URL, SCHOOL_WIN_READY, SUPPORT_PHONE, WHATSAPP_URL,
-  DOWNLOAD_URL, DOWNLOAD_LABEL, QZ_LOGO, QZ_VERSION
+  DOWNLOAD_URL, DOWNLOAD_LABEL, QZ_LOGO, QZ_VERSION,
+  WA_MAMBER_HUB, WA_SCHOOL, WA_QISSABAAZ, WA_BURGER_POINT, BP_NAME, BP_LOGO
 } from "../links";
 import { QzGetButton } from "./Qissabaaz";
 import SiteFooter from "./SiteFooter";
@@ -23,6 +24,7 @@ const apps = [
     version: `Version ${APP_VERSION}`,
     highlights: ["Member video library", "Google Play subscriptions & notifications", "Invite friends with links", "Admin dashboard & collection analytics"],
     page: "/mamber-hub",
+    whatsapp: WA_MAMBER_HUB,
     actions: [{ label: DOWNLOAD_LABEL, href: DOWNLOAD_URL, icon: Download, primary: true }],
   },
   {
@@ -35,6 +37,7 @@ const apps = [
     version: `Version ${SCHOOL_VERSION}`,
     highlights: ["Students & admissions", "Attendance & timetable", "Exams, results & fee invoices", "PDF & Excel reports"],
     page: "/school-management",
+    whatsapp: WA_SCHOOL,
     actions: SCHOOL_WIN_READY
       ? [
           { label: "Download for Windows", href: SCHOOL_WIN_URL, icon: Download, primary: true },
@@ -52,7 +55,21 @@ const apps = [
     version: `Version ${QZ_VERSION}`,
     highlights: ["Short vertical episodes", "Free episodes, no account needed", "Basic & ad-free Premium plans", "Like, comment & share"],
     page: "/qissabaaz",
+    whatsapp: WA_QISSABAAZ,
     getButton: true,
+    actions: [],
+  },
+  {
+    id: "burger-point",
+    name: BP_NAME,
+    logo: BP_LOGO,
+    tagline: "Offline food POS for pizza and burger shops",
+    text: "Burger Point runs your food shop's sales system on a phone or a computer. It works without internet, and one person can run the whole system.",
+    platforms: [{ icon: Smartphone, label: "Mobile" }, { icon: Monitor, label: "Computer" }],
+    version: "Demo on request",
+    highlights: ["Works offline", "Mobile and computer", "One user runs everything", "Demo on WhatsApp"],
+    page: "/burger-point",
+    whatsapp: WA_BURGER_POINT,
     actions: [],
   },
 ];
@@ -86,6 +103,7 @@ export default function Home() {
           <Link to="/mamber-hub" onClick={close}>Mamber Hub</Link>
           <Link to="/school-management" onClick={close}>School Management</Link>
           <Link to="/qissabaaz" onClick={close}>Qissabaaz</Link>
+          <Link to="/burger-point" onClick={close}>Burger Point</Link>
           <a href="#contact" onClick={close}>Contact</a>
           <a className="nav-cta" href="#apps" onClick={close}>Get the Apps</a>
         </nav>
@@ -146,6 +164,11 @@ export default function Home() {
                 </ul>
                 <div className="app-actions">
                   {a.getButton && <QzGetButton size={17} />}
+                  {a.whatsapp && (
+                    <a className="btn outline" href={a.whatsapp} target="_blank" rel="noreferrer">
+                      <MessageCircle size={17} /> Ask on WhatsApp
+                    </a>
+                  )}
                   {a.actions.map(({ label, href, icon: Icon, primary }) => (
                     <a key={label} className={primary ? "btn primary" : "btn dark"} href={href}>
                       <Icon size={17} /> {label}

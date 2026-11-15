@@ -79,6 +79,11 @@ const PAGES = {
     title: "Delete Your Qissabaaz Account | Mamber Digital Solutions",
     description: "How to delete your Qissabaaz account and data, in the app or on this page.",
   },
+  "/burger-point": {
+    title: "Burger Point Food POS for Pizza and Burger Shops | Mamber Digital Solutions",
+    description:
+      "Burger Point is an offline food POS app for pizza and burger shops, by Mamber Digital Solutions in Lahore. Ask for a demo on WhatsApp.",
+  },
   "/privacy-policy": {
     title: "Privacy Policy | Mamber Digital Solutions",
     description: "Privacy policy of Mamber Digital Solutions, Lahore, for its apps and website.",

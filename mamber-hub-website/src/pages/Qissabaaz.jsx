@@ -5,7 +5,8 @@ import {
   Menu, X, Check, ArrowRight, Clock, Trash2, FileText
 } from "lucide-react";
 import {
-  COMPANY_NAME, QZ_LOGO, QZ_VERSION, QZ_PLAY_URL, QZ_APK_URL, QZ_PLANS, SUPPORT_EMAIL, MIN_ANDROID
+  COMPANY_NAME, QZ_LOGO, QZ_VERSION, QZ_PLAY_URL, QZ_APK_URL, QZ_PLANS, SUPPORT_EMAIL, MIN_ANDROID,
+  WA_QISSABAAZ
 } from "../links";
 import SiteFooter from "./SiteFooter";
 
@@ -84,6 +85,7 @@ export default function Qissabaaz() {
             <div className="actions">
               <QzGetButton />
               <a className="btn outline" href="#pricing">See Plans <ArrowRight size={18} /></a>
+              <a className="btn outline" href={WA_QISSABAAZ} target="_blank" rel="noreferrer">Ask on WhatsApp</a>
             </div>
             <p className="qz-meta">{MIN_ANDROID} · Version {QZ_VERSION}</p>
           </div>

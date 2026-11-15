@@ -72,6 +72,16 @@ export const PLANS = [
 export const SUPPORT_EMAIL = "supportmemberhub@gmail.com";
 export const SUPPORT_PHONE = "+923187630194";
 export const WHATSAPP_URL = "https://wa.me/923187630194";
+// Each app's WhatsApp button opens a chat with that app's name already in the first message.
+const waLink = (text) => `${WHATSAPP_URL}?text=${encodeURIComponent(text)}`;
+export const WA_MAMBER_HUB = waLink("Assalam o Alaikum, mujhe Mamber Hub ke bare mein maloomat chahiye.");
+export const WA_SCHOOL = waLink("Assalam o Alaikum, mujhe School Management System ke demo aur price ke bare mein maloomat chahiye.");
+export const WA_QISSABAAZ = waLink("Assalam o Alaikum, mujhe Qissabaaz app ke bare mein maloomat chahiye.");
+export const WA_BURGER_POINT = waLink("Assalam o Alaikum, mujhe Burger Point (Food POS) ke demo aur price ke bare mein maloomat chahiye.");
+
+// Burger Point: offline food POS for pizza and burger shops. Demo on WhatsApp for now.
+export const BP_NAME = "Burger Point";
+export const BP_LOGO = "/assets/brand/logo-stacked.png"; // swap for a Burger Point logo when ready
 
 export const WEBSITE_URL = "https://mamberdigitalsolutions.com/";
 
@@ -80,7 +90,7 @@ export const SOCIAL_LINKS = [
   { key: "whatsapp", label: "WhatsApp Channel", href: "https://whatsapp.com/channel/0029Vb8gwbm4yltS5a7z6j2k" },
   { key: "facebook", label: "Facebook", href: "https://www.facebook.com/share/18pKxuso9s/" },
   { key: "instagram", label: "Instagram", href: "https://www.instagram.com/mamberdigitalsolutions/" },
-  { key: "tiktok", label: "TikTok", href: "https://www.tiktok.com/@mamberhubofficial" },
+  { key: "tiktok", label: "TikTok", href: "https://www.tiktok.com/@mamberdigitalsolutions" },
 ];
 
 // Qissabaaz (short-drama app, Android). Same plans, policies and delete page as the app.

@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 import {
   COMPANY_NAME, SCHOOL_ICON, SCHOOL_LOGO_WIDE, SCHOOL_VERSION, SCHOOL_WEB_URL, SCHOOL_WIN_SIZE,
-  SCHOOL_WIN_URL, SCHOOL_WIN_READY, SUPPORT_EMAIL, WHATSAPP_URL,
+  SCHOOL_WIN_URL, SCHOOL_WIN_READY, SUPPORT_EMAIL, WA_SCHOOL,
   SCHOOL_DEMO_DAYS, SCHOOL_PRICE_PKR, SCHOOL_PAY_NUMBER
 } from "../links";
 import SiteFooter from "./SiteFooter";
@@ -218,7 +218,7 @@ export default function SchoolManagement() {
                 <li><Check size={17} /> We activate your school for 1 month</li>
                 <li><Check size={17} /> Renew each month — your data is never deleted</li>
               </ul>
-              <a className="btn primary" href={WHATSAPP_URL} target="_blank" rel="noreferrer"><MessageCircle size={18} /> Questions? WhatsApp us</a>
+              <a className="btn primary" href={WA_SCHOOL} target="_blank" rel="noreferrer"><MessageCircle size={18} /> Questions? WhatsApp us</a>
             </article>
           </div>
         </section>
@@ -276,7 +276,7 @@ export default function SchoolManagement() {
             <h2>We Will Help You Get Started</h2>
             <p>Message us on WhatsApp for help setting up your school, classes and fee structure.</p>
           </div>
-          <a className="btn white" href={WHATSAPP_URL} target="_blank" rel="noreferrer">
+          <a className="btn white" href={WA_SCHOOL} target="_blank" rel="noreferrer">
             <MessageCircle size={19} /> Contact on WhatsApp
           </a>
         </section>

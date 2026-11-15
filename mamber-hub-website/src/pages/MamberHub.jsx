@@ -7,7 +7,7 @@ import {
 } from "lucide-react";
 import {
   APK_URL, APP_VERSION, APP_SIZE, MIN_ANDROID, PLANS, PLAY_STORE_URL, DOWNLOAD_URL,
-  DOWNLOAD_LABEL, SOCIAL_LINKS, WHATSAPP_URL
+  DOWNLOAD_LABEL, SOCIAL_LINKS, WA_MAMBER_HUB
 } from "../links";
 import SiteFooter, { SOCIAL_ICONS, SOCIAL_COLORS } from "./SiteFooter";
 import {
@@ -298,7 +298,7 @@ export default function MamberHub() {
           </div>
           <div className="actions" style={{ margin: 0 }}>
             <a className="btn primary" href={DOWNLOAD_URL}><Share2 size={18} /> {DOWNLOAD_LABEL}</a>
-            <a className="btn outline" href={WHATSAPP_URL} target="_blank" rel="noreferrer"><MessageCircle size={18} /> WhatsApp</a>
+            <a className="btn outline" href={WA_MAMBER_HUB} target="_blank" rel="noreferrer"><MessageCircle size={18} /> WhatsApp</a>
           </div>
         </section>
       </main>

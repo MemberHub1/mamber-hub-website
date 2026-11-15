@@ -64,7 +64,7 @@ const apps = [
     name: BP_NAME,
     logo: BP_LOGO,
     tagline: "Offline food POS for pizza and burger shops",
-    text: "4.pos runs your food shop's sales system on a phone or a computer. It works without internet, and one person can run the whole system.",
+    text: "Burger Point runs your food shop's sales system on a phone or a computer. It works without internet, and one person can run the whole system.",
     platforms: [{ icon: Smartphone, label: "Mobile" }, { icon: Monitor, label: "Computer" }],
     version: "Demo on request",
     highlights: ["Works offline", "Mobile and computer", "One user runs everything", "Demo on WhatsApp"],

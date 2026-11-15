@@ -52,7 +52,7 @@ function PageTopBar({ variant = "company" }) {
         <Link to="/burger-point" className="brand">
           <img className="brand-logo" src={BP_LOGO} alt={`${BP_NAME} logo`} />
           <span>
-            <strong>4<em>.pos</em></strong>
+            <strong>Burger <em>Point</em></strong>
           </span>
         </Link>
         <Link to="/" className="back-home">← All Our Apps</Link>

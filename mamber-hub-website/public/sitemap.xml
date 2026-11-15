@@ -1,60 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <url>
-    <loc>https://mamber-hub-website.pages.dev/</loc>
-  </url>
-
-  <url>
-    <loc>https://mamber-hub-website.pages.dev/about</loc>
-  </url>
-
-  <url>
-    <loc>https://mamber-hub-website.pages.dev/contact</loc>
-  </url>
-
-  <url>
-    <loc>https://mamber-hub-website.pages.dev/mamber-hub</loc>
-  </url>
-
-  <url>
-    <loc>https://mamber-hub-website.pages.dev/school-management</loc>
-  </url>
-
-  <url>
-    <loc>https://mamber-hub-website.pages.dev/school-management/privacy-policy</loc>
-  </url>
-
-  <url>
-    <loc>https://mamber-hub-website.pages.dev/qissabaaz</loc>
-  </url>
-
-  <url>
-    <loc>https://mamber-hub-website.pages.dev/qissabaaz/privacy-policy</loc>
-  </url>
-
-  <url>
-    <loc>https://mamber-hub-website.pages.dev/qissabaaz/terms</loc>
-  </url>
-
-  <url>
-    <loc>https://mamber-hub-website.pages.dev/qissabaaz/child-safety</loc>
-  </url>
-
-  <url>
-    <loc>https://mamber-hub-website.pages.dev/qissabaaz/delete-account</loc>
-  </url>
-
-  <url>
-    <loc>https://mamber-hub-website.pages.dev/privacy-policy</loc>
-  </url>
-
-  <url>
-    <loc>https://mamber-hub-website.pages.dev/terms</loc>
-  </url>
-
-  <url>
-    <loc>https://mamber-hub-website.pages.dev/delete-account</loc>
-  </url>
-
+  <url><loc>https://mamberdigitalsolutions.com/</loc></url>
+  <url><loc>https://mamberdigitalsolutions.com/about</loc></url>
+  <url><loc>https://mamberdigitalsolutions.com/contact</loc></url>
+  <url><loc>https://mamberdigitalsolutions.com/mamber-hub</loc></url>
+  <url><loc>https://mamberdigitalsolutions.com/school-management</loc></url>
+  <url><loc>https://mamberdigitalsolutions.com/school-management/privacy-policy</loc></url>
+  <url><loc>https://mamberdigitalsolutions.com/qissabaaz</loc></url>
+  <url><loc>https://mamberdigitalsolutions.com/qissabaaz/privacy-policy</loc></url>
+  <url><loc>https://mamberdigitalsolutions.com/qissabaaz/terms</loc></url>
+  <url><loc>https://mamberdigitalsolutions.com/qissabaaz/child-safety</loc></url>
+  <url><loc>https://mamberdigitalsolutions.com/qissabaaz/delete-account</loc></url>
+  <url><loc>https://mamberdigitalsolutions.com/privacy-policy</loc></url>
+  <url><loc>https://mamberdigitalsolutions.com/terms</loc></url>
+  <url><loc>https://mamberdigitalsolutions.com/delete-account</loc></url>
 </urlset>

@@ -73,7 +73,7 @@ export const SUPPORT_EMAIL = "supportmemberhub@gmail.com";
 export const SUPPORT_PHONE = "+923187630194";
 export const WHATSAPP_URL = "https://wa.me/923187630194";
 
-export const WEBSITE_URL = "https://mamber-hub-website.pages.dev/";
+export const WEBSITE_URL = "https://mamberdigitalsolutions.com/";
 
 // Mamber Digital Solutions accounts (same links as the app's Support page).
 export const SOCIAL_LINKS = [

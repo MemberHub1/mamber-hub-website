@@ -464,3 +464,9 @@ h2 span, .hero h1 span { color: var(--mh-p3); }
 .qz-policy .muted { opacity: .7; font-size: 13px; }
 @media (max-width: 900px) { .qz-plans { grid-template-columns: 1fr; } }
 @media (max-width: 768px) { .qz-logo-hero { display: block; width: 100%; max-width: 280px; margin: 30px auto 0; } }
+
+/* Burger Point: app screen gallery */
+.bp-shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 18px; margin-top: 26px; }
+.bp-shots figure { margin: 0; background: #fff; border: 1px solid var(--mh-line); border-radius: 24px; box-shadow: var(--mh-shadow); padding: 10px; }
+.bp-shots img { display: block; width: 100%; height: auto; border-radius: 16px; }
+.bp-shots figcaption { margin-top: 10px; font-weight: 700; font-size: 14px; color: var(--mh-text); }

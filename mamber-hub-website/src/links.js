@@ -82,6 +82,10 @@ export const WA_BURGER_POINT = waLink("Assalam o Alaikum, mujhe Burger Point (Fo
 // Burger Point: offline food POS for pizza and burger shops. Demo on WhatsApp for now.
 export const BP_NAME = "Burger Point";
 export const BP_LOGO = "/assets/brand/logo-stacked.png"; // swap for a Burger Point logo when ready
+// Burger Point downloads, served from public/downloads/.
+// Android app (APK, 3.5 MB) and the computer version (zip with BurgerPoint.html and a launcher .bat).
+export const BP_APK_URL = "/downloads/BurgerPoint.apk";
+export const BP_COMPUTER_URL = "/downloads/BurgerPoint-Computer.zip";
 
 export const WEBSITE_URL = "https://mamberdigitalsolutions.com/";
 

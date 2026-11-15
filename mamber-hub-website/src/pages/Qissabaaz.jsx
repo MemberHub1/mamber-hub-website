@@ -45,7 +45,6 @@ export default function Qissabaaz() {
   const close = () => setOpen(false);
 
   React.useEffect(() => {
-    document.title = "Qissabaaz — Short Dramas from Turkey, Pakistan, India & China";
     window.scrollTo(0, 0);
   }, []);
 

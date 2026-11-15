@@ -62,7 +62,6 @@ export default function MamberHub() {
   const close = () => setOpen(false);
 
   React.useEffect(() => {
-    document.title = "Mamber Hub — Members Together, Growth Forever";
     const hash = window.location.hash;
     if (hash) setTimeout(() => document.querySelector(hash)?.scrollIntoView(), 0);
     else window.scrollTo(0, 0);

@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 
 import "./styles.css";
 import "./app-theme.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import ContactUs from "./pages/ContactUs";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import AboutUs from "./pages/AboutUs";
@@ -15,9 +15,21 @@ import SchoolManagement from "./pages/SchoolManagement";
 import SchoolPrivacy from "./pages/SchoolPrivacy";
 import Qissabaaz from "./pages/Qissabaaz";
 import QissabaazPolicy from "./pages/QissabaazPolicy";
+import { PAGE_TITLES } from "./pageTitles";
+
+// Sets the page title when the visitor moves to another page inside the app.
+function RouteTitle() {
+  const { pathname } = useLocation();
+  React.useEffect(() => {
+    const path = pathname.length > 1 ? pathname.replace(/\/$/, "") : pathname;
+    if (PAGE_TITLES[path]) document.title = PAGE_TITLES[path];
+  }, [pathname]);
+  return null;
+}
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
+    <RouteTitle />
     <Routes>
       <Route path="/" element={<Home />} />
 

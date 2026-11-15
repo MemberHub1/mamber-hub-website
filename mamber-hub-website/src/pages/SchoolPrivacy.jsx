@@ -108,7 +108,6 @@ const sections = [
 
 export default function SchoolPrivacy() {
   React.useEffect(() => {
-    document.title = "Privacy Policy — School Management System";
     window.scrollTo(0, 0);
   }, []);
 

@@ -97,7 +97,6 @@ export default function SchoolManagement() {
   const close = () => setOpen(false);
 
   React.useEffect(() => {
-    document.title = "School Management System — English & Urdu school software";
     window.scrollTo(0, 0);
   }, []);
 

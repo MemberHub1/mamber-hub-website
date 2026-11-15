@@ -51,7 +51,6 @@ export default function QissabaazPolicy({ kind }) {
   const doc = page ? page.doc : "Delete Account";
 
   React.useEffect(() => {
-    document.title = `${doc} — Qissabaaz`;
     window.scrollTo(0, 0);
   }, [doc]);
 

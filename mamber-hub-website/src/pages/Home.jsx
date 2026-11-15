@@ -69,7 +69,6 @@ export default function Home() {
   const close = () => setOpen(false);
 
   React.useEffect(() => {
-    document.title = `${COMPANY_NAME} — Mamber Hub, School Management & Qissabaaz`;
     if (!window.location.hash) window.scrollTo(0, 0);
   }, []);
 

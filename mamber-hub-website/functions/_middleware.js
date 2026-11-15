@@ -80,9 +80,9 @@ const PAGES = {
     description: "How to delete your Qissabaaz account and data, in the app or on this page.",
   },
   "/burger-point": {
-    title: "Burger Point Food POS for Pizza and Burger Shops | Qamar Sons",
+    title: "4.pos Food POS for Pizza and Burger Shops | Qamar Sons",
     description:
-      "Burger Point is an offline food POS app for pizza and burger shops, by Qamar Sons in Lahore. Ask for a demo on WhatsApp.",
+      "4.pos is an offline food POS app for pizza and burger shops, by Qamar Sons in Lahore. Ask for a demo on WhatsApp.",
   },
   "/privacy-policy": {
     title: "Privacy Policy | Mamber Digital Solutions",

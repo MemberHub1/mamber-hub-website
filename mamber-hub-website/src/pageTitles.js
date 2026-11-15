@@ -13,7 +13,7 @@ export const PAGE_TITLES = {
   "/qissabaaz/terms": "Qissabaaz Terms and Conditions | Mamber Digital Solutions",
   "/qissabaaz/child-safety": "Qissabaaz Child Safety Standards | Mamber Digital Solutions",
   "/qissabaaz/delete-account": "Delete Your Qissabaaz Account | Mamber Digital Solutions",
-  "/burger-point": "Burger Point Food POS for Pizza and Burger Shops | Qamar Sons",
+  "/burger-point": "4.pos Food POS for Pizza and Burger Shops | Qamar Sons",
   "/privacy-policy": "Privacy Policy | Mamber Digital Solutions",
   "/terms": "Terms and Conditions | Mamber Digital Solutions",
   "/delete-account": "Delete Your Mamber Hub Account | Mamber Digital Solutions",

@@ -77,11 +77,11 @@ const waLink = (text) => `${WHATSAPP_URL}?text=${encodeURIComponent(text)}`;
 export const WA_MAMBER_HUB = waLink("Assalam o Alaikum, mujhe Mamber Hub ke bare mein maloomat chahiye.");
 export const WA_SCHOOL = waLink("Assalam o Alaikum, mujhe School Management System ke demo aur price ke bare mein maloomat chahiye.");
 export const WA_QISSABAAZ = waLink("Assalam o Alaikum, mujhe Qissabaaz app ke bare mein maloomat chahiye.");
-export const WA_BURGER_POINT = waLink("Assalam o Alaikum, mujhe Burger Point (Food POS) ke demo aur price ke bare mein maloomat chahiye.");
+export const WA_BURGER_POINT = waLink("Assalam o Alaikum, mujhe 4.pos (Food POS) ke demo aur price ke bare mein maloomat chahiye.");
 
 // Burger Point: offline food POS for pizza and burger shops. Demo on WhatsApp for now.
-export const BP_NAME = "Burger Point";
-export const BP_LOGO = "/assets/brand/logo-stacked.png"; // swap for a Burger Point logo when ready
+export const BP_NAME = "4.pos";
+export const BP_LOGO = "/assets/burger-point/logo.svg"; // the app's own logo (its launcher icon)
 // Burger Point downloads, served from public/downloads/.
 // Android app (APK, 3.5 MB) and the computer version (zip with BurgerPoint.html and a launcher .bat).
 export const BP_APK_URL = "/downloads/BurgerPoint.apk";

@@ -19,7 +19,7 @@ const VARIANTS = {
       { to: "/mamber-hub", label: "Mamber Hub" },
       { to: "/school-management", label: "School Management" },
       { to: "/qissabaaz", label: "Qissabaaz" },
-      { to: "/burger-point", label: "Burger Point" },
+      { to: "/burger-point", label: "4.pos" },
       { href: "/school-app/", label: "School Web App" },
       { to: "/about", label: "About Us" },
     ],

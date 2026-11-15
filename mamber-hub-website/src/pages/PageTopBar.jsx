@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { SCHOOL_ICON, QZ_LOGO, COMPANY_LOGO_WHITE, COMPANY_NAME } from "../links";
+import { SCHOOL_ICON, QZ_LOGO, COMPANY_LOGO_WHITE, COMPANY_NAME, BP_LOGO, BP_NAME } from "../links";
 
-// Top bar for inner pages. variant: "company" (default), "mamber", "school" or "qissabaaz".
+// Top bar for inner pages. variant: "company" (default), "mamber", "school", "qissabaaz" or "burger".
 function PageTopBar({ variant = "company" }) {
   if (variant === "qissabaaz") {
     return (
@@ -42,6 +42,20 @@ function PageTopBar({ variant = "company" }) {
           </span>
         </Link>
         <Link to="/mamber-hub" className="back-home">← Back to Mamber Hub</Link>
+      </div>
+    );
+  }
+
+  if (variant === "burger") {
+    return (
+      <div className="page-topbar">
+        <Link to="/burger-point" className="brand">
+          <img className="brand-logo" src={BP_LOGO} alt={`${BP_NAME} logo`} />
+          <span>
+            <strong>4<em>.pos</em></strong>
+          </span>
+        </Link>
+        <Link to="/" className="back-home">← All Our Apps</Link>
       </div>
     );
   }

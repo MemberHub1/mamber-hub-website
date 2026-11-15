@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import {
   ArrowRight, BarChart3, ChevronDown, Download, ListChecks, Monitor, MessageCircle, Printer,
   Settings, ShoppingBag, Smartphone, UtensilsCrossed, Users, Wallet, WifiOff,
@@ -7,10 +6,10 @@ import {
 import PageTopBar from "./PageTopBar";
 import SiteFooter, { SOCIAL_ICONS, SOCIAL_COLORS } from "./SiteFooter";
 import {
-  BP_APK_URL, BP_COMPUTER_URL, BP_NAME, SOCIAL_LINKS, SUPPORT_PHONE, WA_BURGER_POINT,
+  BP_APK_URL, BP_COMPUTER_URL, BP_LOGO, BP_NAME, SOCIAL_LINKS, SUPPORT_PHONE, WA_BURGER_POINT,
 } from "../links";
 
-// The four points shown in the Burger Point video.
+// The four points shown in the app's video.
 const fourPoints = [
   { icon: WifiOff, title: "Works without internet", text: "The shop keeps taking orders and printing bills even when the internet is down." },
   { icon: Smartphone, title: "Runs on Android phones", text: "Install the Android app and run the counter from a phone." },
@@ -29,7 +28,7 @@ const features = [
   { icon: Users, title: "One user runs everything", text: "A single person can handle orders, the menu, expenses and reports from start to finish." },
 ];
 
-// Screens taken from the Burger Point app (public/assets/burger-point/).
+// Screens taken from the app (public/assets/burger-point/).
 const screens = [
   { src: "/assets/burger-point/bp-menu.jpg", label: "Menu management" },
   { src: "/assets/burger-point/bp-pos.jpg", label: "Take order and checkout" },
@@ -52,13 +51,13 @@ const downloads = [
 ];
 
 const installSteps = [
-  { title: "Android", text: "Download the APK, open it, and allow installation from this source. Then open Burger Point." },
+  { title: "Android", text: "Download the APK, open it, and allow installation from this source. Then open the app from your home screen." },
   { title: "Computer", text: "Download the zip and extract it into a permanent folder such as D:\\BurgerPoint, not Downloads. Double-click \"Burger Point Kholein\"." },
   { title: "First time", text: "On the computer, send your Device ID to us on WhatsApp, enter the code you get back, and fill in your shop details." },
 ];
 
 const faqs = [
-  ["Does Burger Point need internet?",
+  [`Does ${BP_NAME} need internet?`,
     "No. It works without internet. Orders, menu, expenses and reports are saved on the device, so the shop keeps running when the connection drops."],
   ["Can one person run the whole system?",
     "Yes. One person can take orders, manage the menu, record expenses and check reports."],
@@ -71,7 +70,7 @@ const faqs = [
   ["What order types and payments are supported?",
     "Dine-in, takeaway and delivery. Payment by cash, card or online. You can add a discount and a note to any order."],
   ["How do I activate the app?",
-    "Open Burger Point and note the Device ID. Send it to us on WhatsApp at 0318-7630194, and we will send you a code. Enter the code in the app to activate it."],
+    `Open ${BP_NAME} and note the Device ID. Send it to us on WhatsApp at 0318-7630194, and we will send you a code. Enter the code in the app to activate it.`],
   ["How much does it cost, and can I see a demo first?",
     "Ask for a demo and pricing on WhatsApp at 0318-7630194. We will show you the app set up for your kind of shop."],
 ];
@@ -83,10 +82,11 @@ export default function BurgerPoint() {
 
   return (
     <div className="site company">
-      <PageTopBar />
+      <PageTopBar variant="burger" />
       <main>
         <section className="hero company-hero">
           <div className="hero-copy">
+            <img className="bp-logo" src={BP_LOGO} alt={`${BP_NAME} logo`} width="96" height="96" />
             <p className="eyebrow">DEVELOPED BY QAMAR SONS</p>
             <h1>{BP_NAME}<br /><span>Food POS for Your Shop</span></h1>
             <p className="hero-text">
@@ -103,11 +103,25 @@ export default function BurgerPoint() {
           </div>
         </section>
 
+        <section className="section centered">
+          <p className="eyebrow center">APP SCREENS</p>
+          <h2>A closer look at <span>the app</span></h2>
+          <p className="section-sub">Real screens from the {BP_NAME} app.</p>
+          <div className="bp-shots">
+            {screens.map(({ src, label }) => (
+              <figure key={label}>
+                <img src={src} alt={`${BP_NAME} app: ${label}`} width="390" height="905" loading="lazy" />
+                <figcaption>{label}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+
         <section className="section light">
           <p className="eyebrow center">INTRODUCTION</p>
-          <h2>What is <span>Burger Point</span></h2>
+          <h2>What is <span>{BP_NAME}</span></h2>
           <p className="section-sub">
-            Burger Point is a food point-of-sale (POS) app made for pizza and burger shops. It replaces
+            {BP_NAME} is a food point-of-sale (POS) app made for pizza and burger shops. It replaces
             paper slips, the register book and the calculator. The person at the counter takes the order,
             the kitchen gets a slip, and the owner sees the day's sales at the end of the day.
           </p>
@@ -118,7 +132,7 @@ export default function BurgerPoint() {
         </section>
 
         <section className="section centered">
-          <p className="eyebrow center">WHY BURGER POINT</p>
+          <p className="eyebrow center">WHY {BP_NAME.toUpperCase()}</p>
           <h2>Four points <span>for every shop</span></h2>
           <div className="feature-grid">
             {fourPoints.map(({ icon: Icon, title, text }) => (
@@ -146,23 +160,9 @@ export default function BurgerPoint() {
           </div>
         </section>
 
-        <section className="section centered">
-          <p className="eyebrow center">APP SCREENS</p>
-          <h2>A closer look at <span>the app</span></h2>
-          <p className="section-sub">Real screens from the Burger Point app.</p>
-          <div className="bp-shots">
-            {screens.map(({ src, label }) => (
-              <figure key={label}>
-                <img src={src} alt={`Burger Point app: ${label}`} width="390" height="905" loading="lazy" />
-                <figcaption>{label}</figcaption>
-              </figure>
-            ))}
-          </div>
-        </section>
-
         <section className="section process">
           <p className="eyebrow center">SIMPLE PROCESS</p>
-          <h2>How Burger Point <span>Works</span></h2>
+          <h2>How {BP_NAME} <span>Works</span></h2>
           <p className="section-sub">From install to your first bill in four steps.</p>
           <div className="steps">
             {steps.map(({ num, title, text }) => (
@@ -177,7 +177,7 @@ export default function BurgerPoint() {
 
         <section id="download" className="section light">
           <p className="eyebrow center">GET THE SOFTWARE</p>
-          <h2>Download <span>Burger Point</span></h2>
+          <h2>Download <span>{BP_NAME}</span></h2>
           <p className="section-sub">Install it on an Android phone or a Windows computer.</p>
           <div className="actions" style={{ justifyContent: "center" }}>
             {downloads.map(({ href, label }) => (
@@ -230,7 +230,7 @@ export default function BurgerPoint() {
           <div>
             <p className="eyebrow">WANT TO SEE IT?</p>
             <h2>Get a Demo on WhatsApp</h2>
-            <p>Message us and we will show you how Burger Point works for your shop.</p>
+            <p>Message us and we will show you how {BP_NAME} works for your shop.</p>
           </div>
           <a className="btn white" href={WA_BURGER_POINT} target="_blank" rel="noreferrer">
             <MessageCircle size={19} /> {SUPPORT_PHONE}
